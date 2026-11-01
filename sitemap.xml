@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://lfm3-harness.github.io/LFM3-Harness/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/chat-desktop.png</image:loc>
+      <image:title>LFM3 Workspace desktop chat with four local model roles ready</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/harness-working.png</image:loc>
+      <image:title>A live LFM3 Workspace turn reading files and showing the evidence gate</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lfm3-harness.github.io/LFM3-Harness/blog/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lfm3-harness.github.io/LFM3-Harness/blog/harness-around-a-small-model.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/harness-working.png</image:loc>
+      <image:title>A 1.7B model turn inside the LFM3 Workspace harness</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lfm3-harness.github.io/LFM3-Harness/blog/local-first-privacy-proven-not-promised.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/harness-working.png</image:loc>
+      <image:title>Localhost-only model servers backing LFM3 Workspace's offline claims</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lfm3-harness.github.io/LFM3-Harness/blog/multi-model-orchestration-in-practice.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/harness-working.png</image:loc>
+      <image:title>Four local model roles cooperating in one LFM3 Workspace turn</image:title>
+    </image:image>
+  </url>
+</urlset>
