@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Build from source — LFM3 Workspace documentation</title>
+    <meta name="description" content="Build LFM3 Workspace with Rust, Node, and Tauri: the development loop, the test suites, the release acceptance script, and how this documentation is generated." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/building.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Build from source — LFM3 Workspace documentation" />
+    <meta property="og:description" content="Build LFM3 Workspace with Rust, Node, and Tauri: the development loop, the test suites, the release acceptance script, and how this documentation is generated." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/building.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Build from source — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="Build LFM3 Workspace with Rust, Node, and Tauri: the development loop, the test suites, the release acceptance script, and how this documentation is generated." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/building.html#article",
+      "headline": "Build from source",
+      "description": "Build LFM3 Workspace with Rust, Node, and Tauri: the development loop, the test suites, the release acceptance script, and how this documentation is generated.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/building.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/building.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Build from source",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/building.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html" aria-current="page" class="is-active">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Build from source</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Under the hood</p>
+          <h1>Build from source</h1>
+          <p class="docs-lede">Rust stable, Node.js 22, and Tauri 2. The desktop app, the CLI, and this documentation all build from the same checkout.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>4 min read</span>
+          </p>
+
+<p>Rust stable, Node.js 22, and Tauri 2. The desktop app, the CLI, and this documentation all build from the same checkout.</p>
+<h2 id="prerequisites">Prerequisites<a class="anchor" href="#prerequisites" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Tool</th><th scope="col">Version</th><th scope="col">Notes</th></tr></thead><tbody><tr><td>Rust</td><td>stable</td><td>MSVC toolchain on Windows, GNU on Linux</td></tr><tr><td>Node.js</td><td>22</td><td>Used by the UI and the Tauri CLI</td></tr><tr><td>Tauri CLI</td><td>2.x</td><td>Installed as a dev dependency of <code>apps/desktop</code></td></tr><tr><td>Windows</td><td>MSVC build tools</td><td>For the Rust toolchain and the final bundle</td></tr><tr><td>Linux</td><td>WebKitGTK 4.1, GTK 3</td><td>Required to build and run the desktop shell</td></tr></tbody></table></div>
+<p>The cargo workspace must be on <code>PATH</code> for the Tauri CLI.</p>
+<h2 id="development-loop">Development loop<a class="anchor" href="#development-loop" aria-label="Link to this section">#</a></h2>
+<div class="code-block"><pre><code class="language-bash">npm --prefix apps/ui install
+npm --prefix apps/desktop install
+cd apps/desktop
+npx tauri dev</code></pre></div>
+<p>Vite serves the UI on <code>127.0.0.1:1420</code>; the Tauri window is 1280×1000 with a 960×720 minimum. The shell embeds the engine, so there is no second server to start.</p>
+<p>On Windows, <code>run.bat</code> wraps the same commands:</p>
+<div class="code-block"><pre><code class="language-powershell">.\run.bat              # Vite + embedded Rust backend
+.\run.bat app          # the already-built application
+.\run.bat cli doctor   # any CLI command
+.\run.bat build        # NSIS installer</code></pre></div>
+<p>On Linux, <code>./run.sh desktop</code> starts the same UI and installs a private Node.js LTS under <code>.tools/linux-node</code> when needed. <code>./run.sh deps</code> prints the exact WebKitGTK package command for your distribution.</p>
+<h2 id="repository-layout">Repository layout<a class="anchor" href="#repository-layout" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Path</th><th scope="col">Contents</th></tr></thead><tbody><tr><td><code>crates/lfm3-harness</code></td><td>The engine: contracts, tools, verification, journal</td></tr><tr><td><code>crates/lfm3-cli</code></td><td>The <code>lfm3</code> binary</td></tr><tr><td><code>apps/desktop</code></td><td>Tauri 2 shell, commands, chat runtime, downloads</td></tr><tr><td><code>apps/ui</code></td><td>React and TypeScript interface</td></tr><tr><td><code>missions/</code></td><td>Mission manifests</td></tr><tr><td><code>tools/llama</code></td><td>Staged llama.cpp runtime</td></tr><tr><td><code>models/</code></td><td>Weights, when present</td></tr><tr><td><code>docs/guide</code></td><td>Markdown sources for this documentation site</td></tr><tr><td><code>scripts/</code></td><td>Build, staging, smoke, and acceptance scripts</td></tr><tr><td><code>bench/multimodel</code></td><td>The real-model harness benchmark</td></tr></tbody></table></div>
+<h2 id="tests">Tests<a class="anchor" href="#tests" aria-label="Link to this section">#</a></h2>
+<div class="code-block"><pre><code class="language-bash">cargo fmt --all -- --check
+cargo clippy --workspace --all-targets -- -D warnings
+cargo test --workspace
+
+cd apps/ui
+npm run typecheck
+npm test             # Vitest
+npm run build
+npx playwright test</code></pre></div>
+<p>What each gate covers:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Gate</th><th scope="col">Covers</th></tr></thead><tbody><tr><td>Workspace tests</td><td>Engine, tool confinement, verification, recovery, desktop commands, job lifecycle</td></tr><tr><td>Vitest</td><td>Reducers, message rendering, routing, job checks, model menu, workspace switching</td></tr><tr><td>Playwright</td><td>The verified-task demo scenarios in the browser</td></tr><tr><td>Clippy with <code>-D warnings</code></td><td>Lint cleanliness, not style preference</td></tr></tbody></table></div>
+<p>Model-dependent tests are marked ignored and run when the pinned weights are present. A test that needs a model does not silently skip and report success.</p>
+<h2 id="packaging">Packaging<a class="anchor" href="#packaging" aria-label="Link to this section">#</a></h2>
+<p><strong>Windows NSIS installer</strong></p>
+<div class="code-block"><pre><code class="language-bash">cd apps/desktop
+npx tauri build --bundles nsis</code></pre></div>
+<p>Output: <code>target/release/bundle/nsis/LFM3 Workspace_0.1.1_x64-setup.exe</code>.</p>
+<p><strong>Linux <code>.deb</code> and <code>.AppImage</code></strong></p>
+<div class="code-block"><pre><code class="language-bash">./run.sh bundle</code></pre></div>
+<p>Output: <code>target/release/bundle/deb/*.deb</code> and <code>target/release/bundle/appimage/*.AppImage</code>. <code>tauri.linux.conf.json</code> selects those targets.</p>
+<p>Both bundles stage <code>missions/</code> and the pinned CPU runtime through <code>scripts/stage-llama-runtime.mjs</code>. The staging step makes no network calls; <code>RUNTIME.txt</code> lists every staged file and the pinned build.</p>
+<p><strong>CI.</strong> <code>.github/workflows/release.yml</code> builds all four assets from one tag and publishes them together, appending a checksum table generated from the uploaded files to the release body.</p>
+<h2 id="release-acceptance">Release acceptance<a class="anchor" href="#release-acceptance" aria-label="Link to this section">#</a></h2>
+<div class="code-block"><pre><code class="language-powershell">powershell -NoProfile -ExecutionPolicy Bypass -File scripts/accept.ps1</code></pre></div>
+<p>In order, it runs: <code>cargo fmt --check</code>, clippy with warnings denied, the full Rust workspace tests, a check that no Python project files remain, UI typecheck and unit tests, Playwright end-to-end tests, the Tauri NSIS build, and the installed smoke acceptance.</p>
+<p>Use <code>-SkipUi</code>, <code>-SkipE2e</code>, <code>-SkipBuild</code>, or <code>-SkipSmoke</code> for partial runs. A full run on the release machine took 170.0 s; a static and UI-only rerun took 29.2 s.</p>
+<p>The installed smoke acceptance (<code>scripts/smoke.ps1</code>) installs the NSIS build silently into a path containing spaces and drives the packaged executable's probes: a real <code>desk_task</code> start and cancel, a refused overlapping start, an interrupted run reported correctly on the next boot, and process containment when the app is force-terminated. It also asserts that an externally started <code>llama-server</code> survives every phase.</p>
+<div class="callout callout-note"><p class="callout-title">Known gaps</p><p>Semantic holdout qualification has not been performed, so automatic semantic passing is disabled and three missions are <code>human_review_only</code>. Real-model replanning is covered only by automated tests. In-app playback of the LFM3 voice is covered by component and runtime tests, not by the headless probe or the Tauri webview.</p></div>
+<h2 id="this-documentation">This documentation<a class="anchor" href="#this-documentation" aria-label="Link to this section">#</a></h2>
+<p>The pages under <code>/docs</code> are generated from <code>docs/guide/*.md</code>. Navigation order, page titles, descriptions, and the ledes live in <code>scripts/build-docs.mjs</code>; the markdown holds only content.</p>
+<div class="code-block"><pre><code class="language-bash">node scripts/build-docs.mjs          # rewrite the HTML, search index, and sitemap entries
+node scripts/build-docs.mjs --check  # fail if the committed output is stale</code></pre></div>
+<p>The generator supports a deliberately small markdown subset: <code>##</code> and <code>###</code> headings, paragraphs, bold, italic, inline code, links, fenced code, unordered and ordered lists, tables, <code>---</code>, and callouts:</p>
+<div class="code-block"><pre><code class="language-text">::: note Optional title
+Body text, with normal inline formatting.
+:::</code></pre></div>
+<p>Variants are <code>note</code>, <code>tip</code>, <code>warn</code>, and <code>danger</code>. Heading ids are generated from the heading text, so cross-page links can point at <code>page.html#section</code> and stay stable. Links ending in <code>.md</code> are rewritten to <code>.html</code> automatically.</p>
+<p>The build also writes <code>docs/search-index.json</code> for the in-page search and updates the generated block in <code>sitemap.xml</code>. Nothing is fetched at runtime, and the output is plain HTML with one small script for search, copy buttons, and scrollspy.</p>
+<h2 id="adding-a-mission">Adding a mission<a class="anchor" href="#adding-a-mission" aria-label="Link to this section">#</a></h2>
+<ol><li>Copy a manifest in <code>missions/</code> and change <code>name</code>, <code>inputs</code>, <code>tools</code>, <code>checks</code>, and <code>output</code>.</li><li>Validate it with <code>lfm3 missions</code>.</li><li>Add fixtures under <code>tests/fixtures/&lt;mission&gt;/</code> and expected facts under <code>tests/golden/&lt;mission&gt;/</code>.</li><li>Run the fixture suite, then a real-model acceptance before claiming the mission is supported.</li></ol>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/building.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="troubleshooting.html"><span>Previous</span><strong>Troubleshooting</strong></a><span></span></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#prerequisites">Prerequisites</a></li><li class="toc-h2"><a href="#development-loop">Development loop</a></li><li class="toc-h2"><a href="#repository-layout">Repository layout</a></li><li class="toc-h2"><a href="#tests">Tests</a></li><li class="toc-h2"><a href="#packaging">Packaging</a></li><li class="toc-h2"><a href="#release-acceptance">Release acceptance</a></li><li class="toc-h2"><a href="#this-documentation">This documentation</a></li><li class="toc-h2"><a href="#adding-a-mission">Adding a mission</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

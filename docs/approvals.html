@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Approvals and safety — LFM3 Workspace documentation</title>
+    <meta name="description" content="How LFM3 Workspace keeps every write behind an explicit approval: exact diffs, Allow once and Deny, ten-minute expiry, workspace confinement, and the advisory decision gates." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Approvals and safety — LFM3 Workspace documentation" />
+    <meta property="og:description" content="How LFM3 Workspace keeps every write behind an explicit approval: exact diffs, Allow once and Deny, ten-minute expiry, workspace confinement, and the advisory decision gates." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Approvals and safety — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="How LFM3 Workspace keeps every write behind an explicit approval: exact diffs, Allow once and Deny, ten-minute expiry, workspace confinement, and the advisory decision gates." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html#article",
+      "headline": "Approvals and safety",
+      "description": "How LFM3 Workspace keeps every write behind an explicit approval: exact diffs, Allow once and Deny, ten-minute expiry, workspace confinement, and the advisory decision gates.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Approvals and safety",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html" aria-current="page" class="is-active">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Approvals and safety</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Using the app</p>
+          <h1>Approvals and safety</h1>
+          <p class="docs-lede">The harness can read and search on its own. It cannot change a file without a person pressing Allow once, and nothing it says is treated as proof.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>5 min read</span>
+          </p>
+
+<p>The harness can read and search on its own. It cannot change a file without a person pressing <strong>Allow once</strong>, and nothing it says is treated as proof.</p>
+<h2 id="reads-run-writes-wait">Reads run, writes wait<a class="anchor" href="#reads-run-writes-wait" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Operation</th><th scope="col">Runs immediately?</th><th scope="col">Why</th></tr></thead><tbody><tr><td><code>list_files</code>, <code>read_file</code>, <code>search_files</code>, <code>related_files</code></td><td>Yes</td><td>Read-only and confined to the workspace</td></tr><tr><td><code>look</code>, <code>transcribe</code></td><td>Yes</td><td>Reads an image or audio file the person pointed at</td></tr><tr><td><code>write_file</code>, <code>edit_file</code></td><td>No</td><td>Creates a pending action that needs approval</td></tr><tr><td>Folder switch, model download</td><td>No</td><td>Explicit person actions; a folder switch is refused while work is live</td></tr></tbody></table></div>
+<p>A read that succeeds is evidence the model can use. A write that succeeds only happens because you decided it should.</p>
+<h2 id="the-approval-card">The approval card<a class="anchor" href="#the-approval-card" aria-label="Link to this section">#</a></h2>
+<p>A pending write or edit appears inline in the conversation with:</p>
+<ul><li>the <strong>full path</strong> inside your workspace;</li><li>the <strong>exact content</strong> for a new file, or an exact diff for an edit;</li><li><strong>Allow once</strong> and <strong>Deny</strong>;</li><li>the time it was proposed, so the ten-minute expiry is not a surprise.</li></ul>
+<p>What each choice does:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Choice</th><th scope="col">Effect</th></tr></thead><tbody><tr><td><strong>Allow once</strong></td><td>Executes that single action, returns its real output to the model, and continues the turn. The next write needs its own approval.</td></tr><tr><td><strong>Deny</strong></td><td>Leaves the file untouched and tells the model not to retry the same change.</td></tr><tr><td>Approve and let it expire</td><td>After ten minutes the action is no longer executable. Nothing is written.</td></tr><tr><td><strong>Stop</strong> during a turn</td><td>Cancels the stream and any pending approval in that turn.</td></tr></tbody></table></div>
+<figure class="figure">
+  <a class="figure-shot" href="../assets/docs/app-approval.png">
+    <picture>
+      <source srcset="../assets/docs/app-approval.webp" type="image/webp" />
+      <img src="../assets/docs/app-approval.png" alt="The decision area of an approval card: Allow once and Deny buttons, a route chip reading report at 75 percent, a write preflight chip reading allow aligned 88 percent with a full path, and a line saying the harness is waiting for approval of a 540-byte write." width="1070" height="340" loading="lazy" decoding="async" />
+    </picture>
+    <span class="figure-pins" aria-hidden="true"><span class="figure-pin" style="--x:5.2%;--y:4.2%">1</span><span class="figure-pin" style="--x:21.3%;--y:4.2%">2</span><span class="figure-pin" style="--x:22.6%;--y:42.9%">3</span><span class="figure-pin" style="--x:21.6%;--y:60%">4</span><span class="figure-pin" style="--x:15.4%;--y:74.1%">5</span></span>
+  </a>
+  <figcaption class="figure-caption">
+    <span>The foot of a real approval card, with the verdicts that let it appear and the pending write beneath it. The path and diff sit above this crop.</span>
+    <span class="figure-hint">Numbers match the list below · click the image to enlarge</span>
+  </figcaption>
+  <ol class="figure-key"><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">1</span><span class="figure-key-text"><strong>Allow once</strong><span>Executes this one action. The next write needs its own approval, and there is no session-wide grant.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">2</span><span class="figure-key-text"><strong>Deny</strong><span>Leaves the file untouched and tells the model not to retry the same change.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">3</span><span class="figure-key-text"><strong>Route</strong><span>The turn was classified as a report, so a write is expected. Routing is a hint, never a grant.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">4</span><span class="figure-key-text"><strong>Write gate</strong><span><code>allow</code> with <code>aligned 88%</code>, and the resolved target inside the workspace.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">5</span><span class="figure-key-text"><strong>Pending action</strong><span>The exact operation waiting on you, with its measured size. It expires after ten minutes.</span></span></li></ol>
+</figure>
+<p>There is no "allow for this session" or "always allow" setting. That is deliberate: a blanket grant would turn one informed decision into an unbounded one.</p>
+<p>Pending actions are persisted with the transcript, so a restart does not lose track of one, and does not silently apply one either. A decision, once stored, stays stored.</p>
+<h2 id="before-a-card-ever-appears">Before a card ever appears<a class="anchor" href="#before-a-card-ever-appears" aria-label="Link to this section">#</a></h2>
+<p>Several refusals happen earlier, so the card you see is already the plausible subset of what the model wanted:</p>
+<ol><li><strong>Grant check.</strong> A tool that was not offered this turn is refused before any path resolution or side effect.</li><li><strong>Path confinement.</strong> Every model-supplied path goes through one shared resolver, used by chat, jobs, and mission checks, so they cannot disagree about what an escape is.</li><li><strong>Write gate.</strong> Before the card is created, d1 compares the change with your latest request. A confident <code>contradicts</code> holds it: no card, no write, and the model is told not to retry.</li><li><strong>Duplicate refusal.</strong> A repeated identical call is refused instead of quietly looping.</li></ol>
+<h3 id="path-rules-in-detail" class="sub">Path rules in detail<a class="anchor" href="#path-rules-in-detail" aria-label="Link to this section">#</a></h3>
+<p>The resolver accepts relative paths inside the canonical workspace root. It also accepts a path that begins with the exact trusted workspace root, because models sometimes echo it back; that prefix is stripped, and any other absolute path is still rejected.</p>
+<p>The following are refused outright:</p>
+<ul><li>parent components (<code>..</code>) anywhere in the path;</li><li>absolute paths outside the workspace;</li><li>reserved device names;</li><li>any component that is a symbolic link or reparse point — this closes the "innocent folder, link to elsewhere" route;</li><li>a path whose canonical form falls outside the workspace root;</li><li>for reads, a path that does not exist or is not a file.</li></ul>
+<p>Writes to a path whose parent does not exist yet are built forward, so a new <code>out/report.md</code> lands as requested rather than in the workspace root.</p>
+<div class="callout callout-warn"><p class="callout-title">Links are not followed</p><p>If your workspace contains a junction or symlink to another drive, tools treat it as forbidden, not as a shortcut. Move the real files into the workspace if you want the harness to read them.</p></div>
+<h2 id="the-two-gates">The two gates<a class="anchor" href="#the-two-gates" aria-label="Link to this section">#</a></h2>
+<p>Both gates are advisory and both are answered by the decision model when it is installed. Full behaviour is on the <a href="chat.html">Chat</a> page; the safety-relevant summary is:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Gate</th><th scope="col">When</th><th scope="col">Can it authorize?</th><th scope="col">What a confident answer does</th></tr></thead><tbody><tr><td>Write gate</td><td>Before a write or edit becomes a card</td><td>No</td><td>Holds a contradiction (at or above 7,500 bps) or adds an uncertainty note</td></tr><tr><td>Evidence gate</td><td>After the first read-only results</td><td>No</td><td>Adds a note to state what evidence is missing (anything but sufficient, at or above 6,500 bps)</td></tr></tbody></table></div>
+<p>If d1 is absent, slow, low-confidence, or returns a label outside its contract, the gate stays silent and behaviour is exactly what it was before the gate existed. A gate can never approve, deny, execute, or weaken anything.</p>
+<h2 id="approvals-versus-verified-tasks">Approvals versus verified tasks<a class="anchor" href="#approvals-versus-verified-tasks" aria-label="Link to this section">#</a></h2>
+<p>Verified tasks use a different approval surface, because they approve <strong>plans</strong>, not just diffs:</p>
+<ul><li>The plan is frozen with its acceptance checks and approved before any step runs.</li><li>Each step's execution is recorded with provenance in the run journal.</li><li>A retry keeps the same frozen contract; it cannot loosen a check.</li></ul>
+<p>Chat and verified work share the engine, the model manager, and the process supervisor, but not their completion rules or their approval records. See <a href="verified-tasks.html">Verified tasks</a>.</p>
+<h2 id="interruptions">Interruptions<a class="anchor" href="#interruptions" aria-label="Link to this section">#</a></h2>
+<ul><li>A turn stopped mid-way comes back marked cancelled, not replayed.</li><li>A verified run killed mid-attempt is reported <code>interrupted</code>; the next boot reconciles it and does not resume it.</li><li>A job that the engine stopped in the middle of is reported <code>interrupted</code> rather than resumed.</li></ul>
+<p>Nothing that was pending at the moment of an interruption is applied later on the harness's own initiative.</p>
+<h2 id="what-stays-your-responsibility">What stays your responsibility<a class="anchor" href="#what-stays-your-responsibility" aria-label="Link to this section">#</a></h2>
+<p>The harness narrows what can happen; it does not review content for you. You are still the person who decides:</p>
+<ul><li>whether the diff is what you asked for, and whether it is correct;</li><li>whether the folder you chose is the right one for this work;</li><li>whether the model's claims about the files are plausible — read the cited file when it matters;</li><li>whether to trust a downloaded artifact from outside the app (the pinned downloads are verified; a file you copied in is your own provenance problem);</li><li>whether to install a release whose checksum does not match.</li></ul>
+<p>The design assumption is not that the model is trustworthy. It is that the person is in the loop, and that the interesting failure modes are visible.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/approvals.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="models.html"><span>Previous</span><strong>Models</strong></a><a class="pager-link pager-next" href="jobs.html"><span>Next</span><strong>Jobs</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#reads-run-writes-wait">Reads run, writes wait</a></li><li class="toc-h2"><a href="#the-approval-card">The approval card</a></li><li class="toc-h2"><a href="#before-a-card-ever-appears">Before a card ever appears</a></li><li class="toc-h3"><a href="#path-rules-in-detail">Path rules in detail</a></li><li class="toc-h2"><a href="#the-two-gates">The two gates</a></li><li class="toc-h2"><a href="#approvals-versus-verified-tasks">Approvals versus verified tasks</a></li><li class="toc-h2"><a href="#interruptions">Interruptions</a></li><li class="toc-h2"><a href="#what-stays-your-responsibility">What stays your responsibility</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

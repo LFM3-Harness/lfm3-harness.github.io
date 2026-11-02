@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Models — LFM3 Workspace documentation</title>
+    <meta name="description" content="The four local model roles, the pinned catalog, the download and verification flow, where weights live, and how to add or remove them by hand." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/models.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Models — LFM3 Workspace documentation" />
+    <meta property="og:description" content="The four local model roles, the pinned catalog, the download and verification flow, where weights live, and how to add or remove them by hand." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/models.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Models — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="The four local model roles, the pinned catalog, the download and verification flow, where weights live, and how to add or remove them by hand." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/models.html#article",
+      "headline": "Models",
+      "description": "The four local model roles, the pinned catalog, the download and verification flow, where weights live, and how to add or remove them by hand.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/models.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/models.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Models",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/models.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html" aria-current="page" class="is-active">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Models</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Using the app</p>
+          <h1>Models</h1>
+          <p class="docs-lede">Four small models, each with one job. They are never downloaded in the background, never fetched from a URL you did not approve, and never leave your machine.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>6 min read</span>
+          </p>
+
+<p>Four small models share the work, each with one job. They are never downloaded in the background, never fetched from a URL you did not approve, and never leave your machine.</p>
+<h2 id="the-four-roles">The four roles<a class="anchor" href="#the-four-roles" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Role</th><th scope="col">Model</th><th scope="col">Job</th><th scope="col">Context</th><th scope="col">Port</th></tr></thead><tbody><tr><td>Act</td><td>LFM3-1.7B</td><td>Planning, bounded acting, and short synthesis</td><td>32,000 tokens</td><td>8080</td></tr><tr><td>Look</td><td>LFM3-VL-2B</td><td>Bounded visual observation of one image at a time</td><td>per-image</td><td>8081</td></tr><tr><td>Hear and speak</td><td>LFM3-Audio-2B</td><td>Verbatim transcription; speech output through <code>llama-tts</code></td><td>per-clip</td><td>8082</td></tr><tr><td>Decide</td><td>d1-2B</td><td>Route classification and the two decision gates</td><td>closed labels</td><td>8083</td></tr></tbody></table></div>
+<p>Only LFM3-1.7B is agentic. The harness records each profile's measured strengths and documented weaknesses in <code>agent::profile</code>, and uses those limits — not a generic default — to cap turns, tool calls, replanning, and plan size.</p>
+<h3 id="lfm3-1-7b-the-acting-model" class="sub">LFM3-1.7B — the acting model<a class="anchor" href="#lfm3-1-7b-the-acting-model" aria-label="Link to this section">#</a></h3>
+<p>Good at short instruction following, strict tool envelopes, concrete local edits, and using concrete failure feedback. Bad at long-horizon planning without a written plan, recalling content it has not read, self-certification, inventing figures, and recovering from repeated failures.</p>
+<p>Those limits become harness rules: a job must write a todo list before acting, unread sources are named in the prompt, a repeated identical call is refused, and <code>finish</code> requires the output to exist on disk. Sampling follows the model card: temperature 0.1, top-k 50, repetition penalty 1.1.</p>
+<h3 id="lfm3-vl-2b-the-vision-model" class="sub">LFM3-VL-2B — the vision model<a class="anchor" href="#lfm3-vl-2b-the-vision-model" aria-label="Link to this section">#</a></h3>
+<p>Observes one image at a time and reports what it sees. Because it cannot know technical facts about a file by looking, the harness supplies measured format, byte length, and pixel dimensions alongside the image. It never runs the planning loop.</p>
+<h3 id="lfm3-audio-2b-hearing-and-speaking" class="sub">LFM3-Audio-2B — hearing and speaking<a class="anchor" href="#lfm3-audio-2b-hearing-and-speaking" aria-label="Link to this section">#</a></h3>
+<p>Transcribes verbatim. It is not an analyst: it does not label speakers, add timestamps, or summarise. Recordings arrive with measured container facts (duration, sample rate, channels) from the harness. The same weight, through <code>llama-tts</code>, renders spoken replies.</p>
+<h3 id="d1-2b-the-decision-model" class="sub">d1-2B — the decision model<a class="anchor" href="#d1-2b-the-decision-model" aria-label="Link to this section">#</a></h3>
+<p>Answers over a closed label set: a task shape for routing, and aligned/uncertain/contradicts or sufficient/insufficient/off-topic for the gates. Its confidence must clear a harness-owned floor or the deterministic keyword route wins. It is not agentic and cannot call tools.</p>
+<h2 id="the-catalog">The catalog<a class="anchor" href="#the-catalog" aria-label="Link to this section">#</a></h2>
+<figure class="figure" style="--figure-width:520px">
+  <a class="figure-shot" href="../assets/docs/app-models.png">
+    <picture>
+      <source srcset="../assets/docs/app-models.webp" type="image/webp" />
+      <img src="../assets/docs/app-models.png" alt="The Models dialog showing the models folder path and one row per role, each marked INSTALLED and Ready to load." width="680" height="704" loading="lazy" decoding="async" />
+    </picture>
+    <span class="figure-pins" aria-hidden="true"><span class="figure-pin" style="--x:8.8%;--y:23.3%">1</span><span class="figure-pin" style="--x:4.6%;--y:32.7%">2</span><span class="figure-pin" style="--x:72%;--y:31.5%">3</span><span class="figure-pin" style="--x:69.5%;--y:42.9%">4</span><span class="figure-pin" style="--x:4.5%;--y:93.7%">5</span></span>
+  </a>
+  <figcaption class="figure-caption">
+    <span>The Models menu with all four roles installed and verified, read from the folder named at the top.</span>
+    <span class="figure-hint">Numbers match the list below · click the image to enlarge</span>
+  </figcaption>
+  <ol class="figure-key"><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">1</span><span class="figure-key-text"><strong>Models folder</strong><span>Where verified weights live. Override it with LFM3_MODELS_DIR; the app scans it on every launch.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">2</span><span class="figure-key-text"><strong>One row per role</strong><span>Text and agent, Vision, Voice in and out, and Decision. No role downloads to fill another's gap.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">3</span><span class="figure-key-text"><strong>Installed</strong><span>The pinned file is on disk. Name, byte length, and SHA-256 all matched before it counted.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">4</span><span class="figure-key-text"><strong>Ready to load</strong><span>Verified but not resident. Chat and jobs hot-swap it when idle, or use Load now.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">5</span><span class="figure-key-text"><strong>Decision role</strong><span>The classifier behind routing and both gates. Without it the app falls back to keyword routing.</span></span></li></ol>
+</figure>
+<p>The <strong>Models</strong> menu lists all four roles with their files, size, repository, and license. Every file is pinned by name, byte length, and SHA-256; the harness verifies all three before using a file.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Role</th><th scope="col">Files</th><th scope="col">Download</th></tr></thead><tbody><tr><td>Text and agent</td><td><code>LFM3-1.7B-Q4_K_M.gguf</code></td><td>1.10 GB</td></tr><tr><td>Vision</td><td><code>LFM3-VL-2B-QAD-Q4_0.gguf</code> + <code>mmproj-LFM3-VL-2B-Q8_0.gguf</code></td><td>1.25 GB</td></tr><tr><td>Voice in and out</td><td><code>LFM3-Audio-2B-Q4_K_M.gguf</code> + <code>mmproj-LFM3-Audio-2B-Q8_0.gguf</code></td><td>1.40 GB</td></tr><tr><td>Decision</td><td><code>d1-2B-Q4_K_M.gguf</code></td><td>1.10 GB</td></tr></tbody></table></div>
+<p>All four roles total roughly 4.9 GB on disk. The repositories are the pinned <code>LiquidAI/LFM3-1.7B-GGUF</code>, <code>LiquidAI/LFM3-VL-2B-GGUF</code>, <code>LiquidAI/LFM3-Audio-2B-GGUF</code>, and <code>LiquidAI/d1-2B-GGUF</code>; each file is fetched over HTTPS from <code>huggingface.co</code>.</p>
+<h2 id="role-states">Role states<a class="anchor" href="#role-states" aria-label="Link to this section">#</a></h2>
+<p>Each row reports one of three states:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">State</th><th scope="col">Meaning</th><th scope="col">What you can do</th></tr></thead><tbody><tr><td><strong>Loaded</strong></td><td>A local server holds the model</td><td>Use it now</td></tr><tr><td><strong>Installed</strong></td><td>The pinned weights are on disk</td><td>Load it, or let chat and jobs hot-swap it when idle</td></tr><tr><td><strong>Missing</strong></td><td>No verified weights found</td><td>Download it, or copy GGUF files in and reload</td></tr></tbody></table></div>
+<h2 id="download-flow">Download flow<a class="anchor" href="#download-flow" aria-label="Link to this section">#</a></h2>
+<p>A download starts only when you click <strong>Download</strong> on a row. Then:</p>
+<ol><li>The harness streams the file to a <code>.part</code> file with live progress and a <strong>Cancel</strong> control.</li><li>It verifies the published byte length and SHA-256.</li><li>Only a verified file is moved into the models folder. A failed check leaves the <code>.part</code> file discarded.</li><li>On completion, a role is hot-swapped into chat and jobs if they are idle. Otherwise the menu offers <strong>Load now</strong>.</li></ol>
+<p>One role downloads at a time. Starting a second download while one is active is refused rather than queued, so the progress and cancel state always refer to exactly one file.</p>
+<div class="callout callout-tip"><p class="callout-title">Manual is a first-class path</p><p>If you already have the GGUFs — from a mirror, a shared drive, or an air-gapped machine — copy them into the models folder and choose <strong>Reload installed models</strong>. The app verifies what it finds and reports the same Loaded/Installed/Missing states.</p></div>
+<h2 id="where-weights-live">Where weights live<a class="anchor" href="#where-weights-live" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Platform</th><th scope="col">Models folder</th></tr></thead><tbody><tr><td>Windows</td><td><code>%LOCALAPPDATA%\LFM3Harness\models</code></td></tr><tr><td>Linux desktop</td><td><code>$XDG_DATA_HOME/LFM3Harness/models</code> or <code>~/.local/share/LFM3Harness/models</code></td></tr><tr><td>Linux CLI</td><td><code>models/</code> beside <code>run.sh</code></td></tr></tbody></table></div>
+<p>The desktop app creates one subfolder per upstream repository and scans the folder on launch. Override the location with <code>LFM3_MODELS_DIR</code>, which every package honours. The path is shown at the top of the <strong>Models</strong> menu so you never have to guess.</p>
+<h2 id="missing-roles-degrade-they-do-not-break">Missing roles degrade, they do not break<a class="anchor" href="#missing-roles-degrade-they-do-not-break" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Missing role</th><th scope="col">Effect</th></tr></thead><tbody><tr><td>Text</td><td>Chat and jobs cannot run. Nothing else can substitute.</td></tr><tr><td>Decision</td><td>Routing falls back to the calibrated keyword route; the write and evidence gates stay silent. Approval behaviour is unchanged.</td></tr><tr><td>Vision</td><td><code>look</code> is not offered; image attachments cannot be inspected.</td></tr><tr><td>Audio</td><td>The microphone path, <code>transcribe</code>, and local speech output report the role as unavailable. On Windows, speech output can fall back to the offline system voice labelled <code>system-sapi</code>.</td></tr></tbody></table></div>
+<p>Nothing is downloaded to fill a gap. A missing role is reported, not repaired.</p>
+<h2 id="performance-and-hardware">Performance and hardware<a class="anchor" href="#performance-and-hardware" aria-label="Link to this section">#</a></h2>
+<p>The bundled runtime is CPU-only and starts servers with <code>-ngl 0</code>. No GPU backend ships in any installer; the 594 MB CUDA backend is excluded deliberately, so no NVIDIA code is redistributed.</p>
+<ul><li>Text inference is the practical bottleneck. A measured <code>desk_task</code> acceptance run completed in 5.99 s wall time including model startup, with a 1,603,924 KB (about 1.53 GiB) peak <code>llama-server</code> memory on the release machine.</li><li>Running all four roles at once costs memory, not correctness. 8 GB is a workable minimum for chat alone; more headroom makes vision, voice, and routing comfortable alongside it.</li><li>Expect CPU inference to be slower than a GPU build. The project publishes measured numbers rather than speed claims; the <a href="https://github.com/LFM3-Harness/LFM3-Harness/blob/main/bench/multimodel/REPORT.md" target="_blank" rel="noopener noreferrer">multi-model benchmark</a> records them with caveats.</li></ul>
+<h2 id="endpoints-and-external-servers">Endpoints and external servers<a class="anchor" href="#endpoints-and-external-servers" aria-label="Link to this section">#</a></h2>
+<p>Each role has a loopback default: <code>http://127.0.0.1:8080/v1</code> for text, <code>:8081</code> for vision, <code>:8082</code> for audio, and <code>:8083</code> for d1. You can point a role at another endpoint with <code>LFM3_TEXT_URL</code>, <code>LFM3_VISION_URL</code>, <code>LFM3_AUDIO_URL</code>, or <code>LFM3_D1_URL</code>, and rename the served identity with the matching <code>*_MODEL</code> variable.</p>
+<p><code>--external</code> (<code>LFM3_REUSE_EXTERNAL_SERVERS</code>) tells the CLI to reuse an already-running loopback server instead of owning one. Under <code>LFM3_PROFILE=packaged</code>, the engine refuses to start with a non-loopback endpoint or with the download flag on. See <a href="configuration.html">Configuration</a>.</p>
+<h2 id="removing-a-model">Removing a model<a class="anchor" href="#removing-a-model" aria-label="Link to this section">#</a></h2>
+<p>Delete its folder inside the models folder, then choose <strong>Reload installed models</strong>. Nothing else references the weights: chat history lives in <code>chat.db</code>, verified evidence lives in the run journal, and neither embeds model bytes.</p>
+<div class="callout callout-note"><p class="callout-title">Do not edit a verified file</p><p>The SHA-256 is the identity of the file. Replacing a <code>.part</code> file, truncating a download, or swapping in a different quantization makes the role fail verification. Download again, or supply a build that matches the pinned digest.</p></div>
+<h2 id="licensing">Licensing<a class="anchor" href="#licensing" aria-label="Link to this section">#</a></h2>
+<p>The weights are not shipped and not sublicensed by this project. Each model keeps the terms on its own Liquid AI model card, shown in the app as <em>LFM Open License (see the model card)</em>. Downloading does not relicense them.</p>
+<p>The application source is MIT. The bundled llama.cpp runtime is MIT, its OpenMP dependency is Apache-2.0 with LLVM Exceptions, and the Windows Visual C++ DLLs are Microsoft redistributables. The full matrix is in <a href="privacy.html">Privacy, security, and licensing</a>.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/models.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="chat.html"><span>Previous</span><strong>Chat</strong></a><a class="pager-link pager-next" href="approvals.html"><span>Next</span><strong>Approvals and safety</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#the-four-roles">The four roles</a></li><li class="toc-h3"><a href="#lfm3-1-7b-the-acting-model">LFM3-1.7B — the acting model</a></li><li class="toc-h3"><a href="#lfm3-vl-2b-the-vision-model">LFM3-VL-2B — the vision model</a></li><li class="toc-h3"><a href="#lfm3-audio-2b-hearing-and-speaking">LFM3-Audio-2B — hearing and speaking</a></li><li class="toc-h3"><a href="#d1-2b-the-decision-model">d1-2B — the decision model</a></li><li class="toc-h2"><a href="#the-catalog">The catalog</a></li><li class="toc-h2"><a href="#role-states">Role states</a></li><li class="toc-h2"><a href="#download-flow">Download flow</a></li><li class="toc-h2"><a href="#where-weights-live">Where weights live</a></li><li class="toc-h2"><a href="#missing-roles-degrade-they-do-not-break">Missing roles degrade, they do not break</a></li><li class="toc-h2"><a href="#performance-and-hardware">Performance and hardware</a></li><li class="toc-h2"><a href="#endpoints-and-external-servers">Endpoints and external servers</a></li><li class="toc-h2"><a href="#removing-a-model">Removing a model</a></li><li class="toc-h2"><a href="#licensing">Licensing</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

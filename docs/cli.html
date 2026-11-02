@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLI reference — LFM3 Workspace documentation</title>
+    <meta name="description" content="The lfm3 command line: doctor, missions, models, plan, run, status, retry, task, and job, with every flag, exit code, and the durable event stream." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="CLI reference — LFM3 Workspace documentation" />
+    <meta property="og:description" content="The lfm3 command line: doctor, missions, models, plan, run, status, retry, task, and job, with every flag, exit code, and the durable event stream." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CLI reference — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="The lfm3 command line: doctor, missions, models, plan, run, status, retry, task, and job, with every flag, exit code, and the durable event stream." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html#article",
+      "headline": "CLI reference",
+      "description": "The lfm3 command line: doctor, missions, models, plan, run, status, retry, task, and job, with every flag, exit code, and the durable event stream.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CLI reference",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html" aria-current="page" class="is-active">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">CLI reference</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Reference</p>
+          <h1>CLI reference</h1>
+          <p class="docs-lede">The same Rust engine the desktop app embeds, driven from a terminal. Useful for headless machines, scripted acceptance runs, and reading the journal directly.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>5 min read</span>
+          </p>
+
+<p>The <code>lfm3</code> CLI drives the same Rust engine the desktop app embeds. It is the right tool for a headless machine, a scripted acceptance run, or reading the journal directly.</p>
+<p>In the Linux CLI archive the binary is <code>lfm3-cli</code>, and <code>run.sh</code> wraps it with the bundled runtime and models paths. In a source checkout, use <code>cargo run -p lfm3-cli --</code>. The commands below are written as <code>lfm3</code> for brevity.</p>
+<div class="code-block"><pre><code class="language-bash">lfm3 doctor
+lfm3 missions
+lfm3 models --probe
+lfm3 run --mission desk_task --input tests/fixtures/desk_task/basic.json --workspace tests/fixtures/desk_task/workspace</code></pre></div>
+<h2 id="global-options">Global options<a class="anchor" href="#global-options" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--missions &lt;dir&gt;</code></td><td><code>missions</code></td><td>Directory of mission manifests</td></tr><tr><td><code>-h</code>, <code>--help</code></td><td></td><td>Command help, including every flag</td></tr><tr><td><code>-V</code>, <code>--version</code></td><td></td><td>Binary version</td></tr></tbody></table></div>
+<p>Every command loads configuration from <code>LFM3_*</code> variables and validates it before doing anything else. A bad value fails fast with the constraint in the message.</p>
+<h2 id="doctor"><code>doctor</code><a class="anchor" href="#doctor" aria-label="Link to this section">#</a></h2>
+<p>Reports the resolved configuration without loading a model.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--probe-models</code></td><td>Also probe the pinned llama.cpp runtime and each local model endpoint</td></tr></tbody></table></div>
+<p>Use it as the first diagnostic on any machine. It lists every missing path and the resolved workspace and models directory.</p>
+<div class="code-block"><pre><code class="language-bash">lfm3 doctor --probe-models</code></pre></div>
+<h2 id="missions"><code>missions</code><a class="anchor" href="#missions" aria-label="Link to this section">#</a></h2>
+<p>Lists validated mission manifests from the missions directory. A manifest that fails validation is reported, not silently skipped.</p>
+<h2 id="models"><code>models</code><a class="anchor" href="#models" aria-label="Link to this section">#</a></h2>
+<p>Reports configured model endpoints and local weights.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--probe</code></td><td>Ask each local endpoint for the model identity it serves</td></tr></tbody></table></div>
+<h2 id="plan"><code>plan</code><a class="anchor" href="#plan" aria-label="Link to this section">#</a></h2>
+<p>Drafts and validates a plan without creating a run.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--mission &lt;name&gt;</code></td><td>Mission to plan for</td></tr><tr><td><code>--fixture &lt;file&gt;</code></td><td>Acceptance fixture JSON (alias <code>--input</code>)</td></tr><tr><td><code>--goal &lt;text&gt;</code></td><td>Goal text when no fixture is used</td></tr><tr><td><code>--workspace &lt;dir&gt;</code></td><td>Workspace folder</td></tr><tr><td><code>--external</code></td><td>Reuse an already-running loopback server</td></tr><tr><td><code>--startup-timeout &lt;seconds&gt;</code></td><td>Model-server startup budget (default 120)</td></tr><tr><td><code>--fake-model</code></td><td>Test-only scripted model; excluded from packaged builds</td></tr></tbody></table></div>
+<h2 id="run"><code>run</code><a class="anchor" href="#run" aria-label="Link to this section">#</a></h2>
+<p>Plans, executes, verifies, retries, and reports one run.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--mission &lt;name&gt;</code></td><td>Mission to run</td></tr><tr><td><code>--fixture &lt;file&gt;</code></td><td>Acceptance fixture JSON (alias <code>--input</code>)</td></tr><tr><td><code>--goal &lt;text&gt;</code></td><td>Goal text when no fixture is used</td></tr><tr><td><code>--workspace &lt;dir&gt;</code></td><td>Workspace folder</td></tr><tr><td><code>--db &lt;file&gt;</code></td><td>Journal database path</td></tr><tr><td><code>--events &lt;target&gt;</code></td><td><code>-</code> for stdout, or a file path</td></tr><tr><td><code>--timeout &lt;seconds&gt;</code></td><td>Whole-run deadline</td></tr><tr><td><code>--external</code></td><td>Reuse an already-running loopback server</td></tr><tr><td><code>--startup-timeout &lt;seconds&gt;</code></td><td>Model-server startup budget (default 120)</td></tr></tbody></table></div>
+<p><code>run</code> exits 0 <strong>only</strong> when every frozen step check and the final output contract pass. The report includes the acceptance hash, per-step attempts, check evidence, observed versus expected output digests, and the event journal count.</p>
+<div class="code-block"><pre><code class="language-bash">lfm3 run \
+  --mission desk_task \
+  --input tests/fixtures/desk_task/basic.json \
+  --workspace tests/fixtures/desk_task/workspace \
+  --events -</code></pre></div>
+<p>With <code>--events -</code>, durable JSON lines go to stdout and the human-readable report goes to stderr, so the two can be redirected independently.</p>
+<h2 id="status"><code>status</code><a class="anchor" href="#status" aria-label="Link to this section">#</a></h2>
+<p>Shows the durable journal state of a run.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Argument / option</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>[run]</code></td><td>Run id; defaults to the most recently created run</td></tr><tr><td><code>--db &lt;file&gt;</code></td><td>Journal database path</td></tr><tr><td><code>--events</code></td><td>Include the durable event journal in the report</td></tr></tbody></table></div>
+<h2 id="retry"><code>retry</code><a class="anchor" href="#retry" aria-label="Link to this section">#</a></h2>
+<p>Creates a linked run with the same frozen acceptance contract.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Argument / option</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>[run]</code></td><td>Run id to retry; defaults to the most recent</td></tr><tr><td><code>--db &lt;file&gt;</code></td><td>Journal database path</td></tr><tr><td><code>--workspace &lt;dir&gt;</code></td><td>Workspace to reuse; required, because the journal stores no path</td></tr><tr><td><code>--events &lt;target&gt;</code></td><td><code>-</code> or a file path</td></tr><tr><td><code>--timeout &lt;seconds&gt;</code></td><td>Whole-run deadline</td></tr><tr><td><code>--external</code></td><td>Reuse an already-running loopback server</td></tr><tr><td><code>--startup-timeout &lt;seconds&gt;</code></td><td>Model-server startup budget</td></tr></tbody></table></div>
+<p>The retry chain is recorded in the journal. A retry cannot weaken a check: the acceptance contract is the same one, frozen at the original run.</p>
+<h2 id="task"><code>task</code><a class="anchor" href="#task" aria-label="Link to this section">#</a></h2>
+<p>The plan-first path: turns a stated goal into a frozen, verified plan without a pre-authored mission.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--goal &lt;text&gt;</code></td><td>required</td><td>What to accomplish</td></tr><tr><td><code>--deliverable &lt;path&gt;</code></td><td>detected</td><td>Required output, relative to the workspace</td></tr><tr><td><code>--plan</code></td><td>off</td><td>Print the plan and execute nothing</td></tr><tr><td><code>--minutes &lt;n&gt;</code></td><td>30</td><td>Whole-task deadline; clamped to 1–1440</td></tr><tr><td><code>--steps &lt;n&gt;</code></td><td>16</td><td>Most steps the plan may contain; clamped to 1–32</td></tr><tr><td><code>--min-steps &lt;n&gt;</code></td><td>2</td><td>Fewest steps; a task must not collapse into one call</td></tr><tr><td><code>--workspace &lt;dir&gt;</code></td><td>config</td><td>Workspace folder</td></tr><tr><td><code>--db &lt;file&gt;</code></td><td>config</td><td>Journal database path</td></tr><tr><td><code>--events &lt;target&gt;</code></td><td>none</td><td><code>-</code> or a file path</td></tr><tr><td><code>--timeout &lt;seconds&gt;</code></td><td>none</td><td>Deadline in seconds; overrides <code>--minutes</code></td></tr><tr><td><code>--external</code></td><td>off</td><td>Reuse an already-running loopback server</td></tr><tr><td><code>--startup-timeout &lt;seconds&gt;</code></td><td>120</td><td>Model-server startup budget</td></tr></tbody></table></div>
+<div class="code-block"><pre><code class="language-bash">lfm3 task --goal "Summarise demo/notes.md into out/summary.md" --workspace ./demo
+lfm3 task --goal "Summarise demo/notes.md into out/summary.md" --workspace ./demo --plan</code></pre></div>
+<p>Every step must declare at least one check. A <code>write_file</code> or <code>edit_file</code> step whose checks name no path is rejected before the acceptance is frozen, so an untestable step never runs.</p>
+<h2 id="job"><code>job</code><a class="anchor" href="#job" aria-label="Link to this section">#</a></h2>
+<p>Runs a stated job as an agent loop until its required output verifies.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Option</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>--goal &lt;text&gt;</code></td><td>required</td><td>What to accomplish</td></tr><tr><td><code>--deliverable &lt;path&gt;</code></td><td>detected</td><td>Required output, relative to the workspace</td></tr><tr><td><code>--workspace &lt;dir&gt;</code></td><td>config</td><td>Workspace folder</td></tr><tr><td><code>--minutes &lt;n&gt;</code></td><td>30</td><td>Whole-job budget; clamped to 1–1440</td></tr><tr><td><code>--max-turns &lt;n&gt;</code></td><td>40</td><td>Most model turns before the loop stops</td></tr><tr><td><code>--max-calls &lt;n&gt;</code></td><td>3</td><td>Tool calls accepted per turn; clamped to 1–4</td></tr><tr><td><code>--events &lt;target&gt;</code></td><td>none</td><td>JSON-lines trace: <code>-</code> or a file path</td></tr><tr><td><code>--timeout &lt;seconds&gt;</code></td><td>none</td><td>Deadline in seconds; overrides <code>--minutes</code></td></tr><tr><td><code>--external</code></td><td>off</td><td>Reuse an already-running loopback server</td></tr><tr><td><code>--startup-timeout &lt;seconds&gt;</code></td><td>120</td><td>Model-server startup budget</td></tr></tbody></table></div>
+<div class="code-block"><pre><code class="language-bash">lfm3 job --goal "Read notes/ and write out/report.md, one section per note" \
+  --workspace ./demo --minutes 30 --events -</code></pre></div>
+<p>The loop's statuses are <code>passed</code>, <code>unverified</code>, <code>turn_budget</code>, <code>deadline</code>, and <code>stalled</code>; see <a href="jobs.html">Jobs</a> for what each one means and how the plan, work, and review phases behave.</p>
+<h2 id="exit-codes">Exit codes<a class="anchor" href="#exit-codes" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Code</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>0</td><td>The run passed: every frozen check and the output contract</td></tr><tr><td>1</td><td>No pass: <code>incomplete</code>, a refusal, a configuration error, or an unavailable model</td></tr></tbody></table></div>
+<p>There is no code for "probably fine". A run that cannot certify its output exits non-zero, and the report says why.</p>
+<h2 id="event-stream">Event stream<a class="anchor" href="#event-stream" aria-label="Link to this section">#</a></h2>
+<p><code>--events -</code> writes durable JSON lines to stdout; <code>--events &lt;file&gt;</code> appends to a file. Each line is one durable event from the run: attempt starts, step failures, retries, checks, and the final status.</p>
+<p>The desktop app uses the same event model over Tauri channels (<code>lfm3:run-event</code>, <code>lfm3:job-event</code>, <code>lfm3:chat-event</code>). The journal is the source of truth; the stream is a live view of it.</p>
+<h2 id="reproducible-acceptance">Reproducible acceptance<a class="anchor" href="#reproducible-acceptance" aria-label="Link to this section">#</a></h2>
+<p><code>scripts/release-real-model.ps1</code> drives the optimized CLI against the pinned models and writes a report, an event journal, a stderr capture, and a result JSON per case into <code>tests/golden/release/</code>. The eight cases it covers (success, failure, escape, retry, crash, unavailable, timeout, missing) are listed in <a href="verified-tasks.html">Verified tasks</a>.</p>
+<p><code>scripts/accept.ps1</code> runs the full release gate: formatting, clippy with warnings denied, workspace tests, the no-Python check, UI typecheck and unit tests, Playwright, the NSIS build, and the installed smoke acceptance. See <a href="building.html">Build from source</a>.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/cli.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="tools.html"><span>Previous</span><strong>Tool reference</strong></a><a class="pager-link pager-next" href="configuration.html"><span>Next</span><strong>Configuration</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#global-options">Global options</a></li><li class="toc-h2"><a href="#doctor"><code>doctor</code></a></li><li class="toc-h2"><a href="#missions"><code>missions</code></a></li><li class="toc-h2"><a href="#models"><code>models</code></a></li><li class="toc-h2"><a href="#plan"><code>plan</code></a></li><li class="toc-h2"><a href="#run"><code>run</code></a></li><li class="toc-h2"><a href="#status"><code>status</code></a></li><li class="toc-h2"><a href="#retry"><code>retry</code></a></li><li class="toc-h2"><a href="#task"><code>task</code></a></li><li class="toc-h2"><a href="#job"><code>job</code></a></li><li class="toc-h2"><a href="#exit-codes">Exit codes</a></li><li class="toc-h2"><a href="#event-stream">Event stream</a></li><li class="toc-h2"><a href="#reproducible-acceptance">Reproducible acceptance</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

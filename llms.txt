@@ -65,6 +65,21 @@ LFM3-Harness is an independent, community-built experimental application for run
 
 ## Documentation
 
+- [Documentation home](https://lfm3-harness.github.io/LFM3-Harness/docs/) — the full guide, searchable, one page per topic.
+- [Quickstart](https://lfm3-harness.github.io/LFM3-Harness/docs/quickstart.html) — install, download two models, ask for a file edit, approve the diff.
+- [Install](https://lfm3-harness.github.io/LFM3-Harness/docs/install.html) — Windows, Linux desktop, Linux CLI, checksums, removal.
+- [Chat](https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html) — turn anatomy, decision routing, the write and evidence gates, voice, attachments.
+- [Models](https://lfm3-harness.github.io/LFM3-Harness/docs/models.html) — the four roles, pinned catalog, download verification, storage.
+- [Approvals and safety](https://lfm3-harness.github.io/LFM3-Harness/docs/approvals.html) — exact diffs, Allow once, Deny, confinement, path rules.
+- [Jobs](https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html) — the agent loop, phases, limits, statuses.
+- [Verified tasks](https://lfm3-harness.github.io/LFM3-Harness/docs/verified-tasks.html) — frozen acceptance contracts and the semantic qualification gate.
+- [Tool reference](https://lfm3-harness.github.io/LFM3-Harness/docs/tools.html) — every tool, its arguments, and its caps.
+- [CLI reference](https://lfm3-harness.github.io/LFM3-Harness/docs/cli.html) — all commands, flags, exit codes, events.
+- [Configuration](https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html) — every environment variable and `setup.json`.
+- [Architecture](https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html) — UI, Tauri shell, embedded engine, child processes, stores.
+- [Privacy, security, and licensing](https://lfm3-harness.github.io/LFM3-Harness/docs/privacy.html) — network paths, data at rest, license matrix.
+- [Troubleshooting](https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html) — symptoms, ports, platform libraries, diagnostics.
+- [Build from source](https://lfm3-harness.github.io/LFM3-Harness/docs/building.html) — development loop, tests, packaging, acceptance.
 - [Install guide and release notes](https://github.com/LFM3-Harness/LFM3-Harness/blob/main/docs/releases/v0.1.1.md)
 - [README](https://github.com/LFM3-Harness/LFM3-Harness/blob/main/README.md)
 - [Source repository](https://github.com/LFM3-Harness/LFM3-Harness)

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat — LFM3 Workspace documentation</title>
+    <meta name="description" content="How a chat turn works in LFM3 Workspace: decision routing, the write and evidence gates, tool rounds, image attachments, voice in and out, and durable sessions." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Chat — LFM3 Workspace documentation" />
+    <meta property="og:description" content="How a chat turn works in LFM3 Workspace: decision routing, the write and evidence gates, tool rounds, image attachments, voice in and out, and durable sessions." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chat — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="How a chat turn works in LFM3 Workspace: decision routing, the write and evidence gates, tool rounds, image attachments, voice in and out, and durable sessions." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html#article",
+      "headline": "Chat",
+      "description": "How a chat turn works in LFM3 Workspace: decision routing, the write and evidence gates, tool rounds, image attachments, voice in and out, and durable sessions.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Chat",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/chat.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html" aria-current="page" class="is-active">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Chat</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Using the app</p>
+          <h1>Chat</h1>
+          <p class="docs-lede">Chat is the main surface. One bounded turn at a time, a visible route, tools confined to one folder, and a person who approves every write.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>7 min read</span>
+          </p>
+
+<p>Chat is the surface the application opens on, and the one most work happens in. It is a conversation with a bounded loop behind it: one turn at a time, a visible route, tools confined to a single folder, and a person who approves every write.</p>
+<h2 id="anatomy-of-a-turn">Anatomy of a turn<a class="anchor" href="#anatomy-of-a-turn" aria-label="Link to this section">#</a></h2>
+<p>A turn starts when you send a message and ends when the model stops, hits a limit, or you press <strong>Stop</strong>. Each turn can use at most twelve tool rounds.</p>
+<ol><li><strong>Route.</strong> If the decision model is installed and your message is at least 24 characters, d1 classifies it into a task shape before the acting model runs. The chosen intent, its source, the confidence, and the local roles for the turn appear in the transcript and are carried into the system prompt.</li><li><strong>Act.</strong> The acting model streams its reply and can call tools. Reads and searches execute immediately; writes and edits become pending actions.</li><li><strong>Gate.</strong> Before a write action becomes an approval card, the write gate compares it with your latest request. After the first batch of read-only results, the evidence gate judges whether those observations are sufficient.</li><li><strong>Approve.</strong> A pending write appears inline with its path and exact content or diff. <strong>Allow once</strong> executes it; <strong>Deny</strong> leaves the file untouched. Pending actions expire after ten minutes.</li><li><strong>Return control.</strong> The turn ends. The model does not keep working in the background, and a second send while a turn is active is refused with a visible error rather than queued.</li></ol>
+<figure class="figure">
+  <a class="figure-shot" href="../assets/docs/app-turn.png">
+    <picture>
+      <source srcset="../assets/docs/app-turn.webp" type="image/webp" />
+      <img src="../assets/docs/app-turn.png" alt="A chat turn mid-flight: the sent message, a route chip, two tool-call cards for search_files and list_files, a decision-model chip for the answer gate, the gate status line, and a Stop button." width="1600" height="866" loading="lazy" decoding="async" />
+    </picture>
+    <span class="figure-pins" aria-hidden="true"><span class="figure-pin" style="--x:42.75%;--y:19.7%">1</span><span class="figure-pin" style="--x:28.6%;--y:36.6%">2</span><span class="figure-pin" style="--x:28.8%;--y:43.2%">3</span><span class="figure-pin" style="--x:48%;--y:59.2%">4</span><span class="figure-pin" style="--x:43.6%;--y:67.3%">5</span><span class="figure-pin" style="--x:91.9%;--y:92.1%">6</span></span>
+  </a>
+  <figcaption class="figure-caption">
+    <span>A turn after two read-only tool calls. The evidence gate is running before the model is allowed to answer.</span>
+    <span class="figure-hint">Numbers match the list below · click the image to enlarge</span>
+  </figcaption>
+  <ol class="figure-key"><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">1</span><span class="figure-key-text"><strong>Your message</strong><span>The request the write and evidence gates compare every proposal against.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">2</span><span class="figure-key-text"><strong>Route</strong><span>Intent from the decision model, with its confidence. Capability hints only: it cannot grant a tool or skip approval.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">3</span><span class="figure-key-text"><strong>Tool calls</strong><span>Each call shows the tool and its real output. Reads run; writes stop and wait for approval instead.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">4</span><span class="figure-key-text"><strong>Answer gate</strong><span>The second gate, judging whether the observations answer your request.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">5</span><span class="figure-key-text"><strong>Gate status</strong><span>The verdict, in words. It is advisory: it can hold an answer back, never certify it.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">6</span><span class="figure-key-text"><strong>Stop</strong><span>Live for the whole turn. Cancelling also voids any pending approval.</span></span></li></ol>
+</figure>
+<p><strong>Stop</strong> cancels the stream and any pending approval. It is not advisory: the child model request is cancelled and no further tool call from that turn is accepted.</p>
+<h2 id="routing">Routing<a class="anchor" href="#routing" aria-label="Link to this section">#</a></h2>
+<p>The decision model is a classifier, not an agent. It answers with a label from a closed set and a confidence in basis points; the harness owns the floor.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Intent</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>general</code></td><td>Ordinary conversation; no specialist role needed</td></tr><tr><td><code>explore</code></td><td>Map a folder or find files</td></tr><tr><td><code>summarize</code></td><td>Read sources and condense them</td></tr><tr><td><code>related</code></td><td>Trace how files relate to one another</td></tr><tr><td><code>report</code></td><td>Produce a Markdown deliverable</td></tr><tr><td><code>vision</code></td><td>Inspect an image</td></tr><tr><td><code>voice</code></td><td>Work from a recording or transcript</td></tr></tbody></table></div>
+<p>Routing rules that matter in practice:</p>
+<ul><li>Messages shorter than 24 characters skip d1 entirely, so greetings cost nothing.</li><li>A confident non-general answer (at least 55%) replaces a calibrated keyword route.</li><li>A confident <code>general</code> answer keeps the turn conversational.</li><li>If d1 is absent, unavailable, too slow, below the floor, or returns an undeclared label, the keyword route stands.</li><li>Routing selects <strong>capability hints only</strong>. It cannot grant a tool, weaken a check, or skip approval.</li></ul>
+<p>The transcript shows the route you got, so a wrong classification is visible rather than silent.</p>
+<h2 id="decision-gates">Decision gates<a class="anchor" href="#decision-gates" aria-label="Link to this section">#</a></h2>
+<p>d1 is consulted at two more points inside a turn. Each has its own typed contract, a closed label set, a harness-owned confidence floor, and a 12-second budget.</p>
+<p><strong>Write gate</strong> — before an approval card is created for <code>write_file</code> or <code>edit_file</code>. It asks whether the proposed change is aligned with, uncertain about, or contradicts your latest request.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Answer</th><th scope="col">Behaviour</th></tr></thead><tbody><tr><td><code>aligned</code></td><td>The approval card is shown as usual</td></tr><tr><td><code>uncertain</code></td><td>The card is shown with an advisory note</td></tr><tr><td><code>contradicts</code>, confidence at or above 7,500 bps</td><td>A hold: no card is shown, nothing is written, and the model is told not to retry the same change</td></tr><tr><td>Anything below the floor, slow, or absent</td><td>The approval card is shown as usual</td></tr></tbody></table></div>
+<p><strong>Evidence gate</strong> — after the first batch of read-only tool results. It asks whether those observations are sufficient, insufficient, or off-topic for the request, with a floor of 6,500 bps. Anything other than sufficient adds an advisory system note telling the model to state what evidence is missing rather than guess.</p>
+<p>Neither gate can approve, deny, or execute anything. A hold only withholds a mismatched change from the approval card; you still decide every write. The latest gate result appears as a chip under the conversation.</p>
+<div class="callout callout-warn"><p class="callout-title">Gates are advisory by design</p><p>A gate that could approve would be a second authority competing with yours. The harness keeps every gate one-way: it can slow a turn down or ask for better evidence, never let a write through.</p></div>
+<h2 id="tools-in-a-turn">Tools in a turn<a class="anchor" href="#tools-in-a-turn" aria-label="Link to this section">#</a></h2>
+<p>The acting model is offered a fixed set: <code>list_files</code>, <code>read_file</code>, <code>search_files</code>, <code>related_files</code>, <code>write_file</code>, and <code>edit_file</code>. Two more are granted only when their model is provisioned: <code>look</code> for the vision model, <code>transcribe</code> for the audio model. The <a href="tools.html">Tool reference</a> documents each one.</p>
+<p>The runtime accepts native streamed tool calls and a fenced <code> </code>`<code>tool </code> JSON block for models that cannot emit a native call. Both paths go through the same approval gate, so the fallback cannot bypass consent.</p>
+<h2 id="context-window">Context window<a class="anchor" href="#context-window" aria-label="Link to this section">#</a></h2>
+<p>The acting model is served with a 32,000-token window. Each request carries a fixed system prompt, the newest 240 messages capped at about 96,000 characters (roughly 24,000 tokens, leaving room for tool output and the reply), temperature 0.3, and at most 1,024 output tokens.</p>
+<p>Older messages fall out of the request window before they fall out of the transcript. The transcript is complete; the context is bounded. Long sessions therefore keep their history on disk and a recent slice in the prompt.</p>
+<h2 id="image-attachments">Image attachments<a class="anchor" href="#image-attachments" aria-label="Link to this section">#</a></h2>
+<p><strong>+img</strong> in the composer accepts a PNG, JPEG, WebP, or GIF up to 20 MB. The file is copied to <code>.attachments/&lt;uuid&gt;-&lt;name&gt;.&lt;ext&gt;</code> inside the workspace and a workspace-relative instruction is inserted into the message. The model inspects it with <code>look</code>, which loads the image through the local vision model.</p>
+<p>An attachment is user-initiated, stays inside the workspace, and is never a model write. Delete the <code>.attachments</code> folder whenever you like; the transcript keeps the reference, and the image is simply gone.</p>
+<p>The vision model observes <strong>one image at a time</strong> and receives measured facts — format, byte length, and pixel dimensions — because it cannot know them by itself.</p>
+<h2 id="voice-input">Voice input<a class="anchor" href="#voice-input" aria-label="Link to this section">#</a></h2>
+<p>The microphone button records with the browser's <code>MediaRecorder</code>, decodes and resamples the clip to 16 kHz mono WAV, and sends it as base64 to Rust. The local audio model receives an <code>input_audio</code> content part and returns verbatim text, which lands in the composer for you to edit before sending.</p>
+<ul><li>No audio leaves the machine.</li><li>The transcription is not sent automatically; you review it.</li><li>The audio role needs both <code>LFM3-Audio-2B-Q4_K_M.gguf</code> and its <code>mmproj</code>. Without them the microphone path reports that the voice model is unavailable.</li><li>The operating system may ask for microphone permission on first use.</li></ul>
+<h2 id="voice-replies">Voice replies<a class="anchor" href="#voice-replies" aria-label="Link to this section">#</a></h2>
+<p><strong>Speak</strong> on any answer, or the header <strong>Voice replies</strong> toggle, calls <code>synthesize_speech</code>, which renders one answer with <code>llama-tts</code> using the same LFM3-Audio-2B weight and <code>mmproj</code> that listen.</p>
+<ul><li>The pinned runtime is b11960. The harness uses the documented <code>--tts-voice female|male</code> option and the model card's audio sampling defaults.</li><li>A 120-second watchdog kills the owned <code>llama-tts</code> process if it hangs.</li><li>The temporary WAV is removed after it is returned.</li><li>If the voice pair is incomplete, Windows falls back to the offline system voice and labels it <code>system-sapi</code>, so you can tell which voice spoke. Linux has no system-voice fallback and reports the local voice as unavailable.</li><li>The health report exposes <code>voice_output.backend = "lfm3-tts"</code>, <code>model = "LFM3-Audio-2B"</code>, and <code>lfm3_tts_weights</code> when the binary and both files are present.</li></ul>
+<h2 id="sessions">Sessions<a class="anchor" href="#sessions" aria-label="Link to this section">#</a></h2>
+<p>Conversations are stored in <code>chat.db</code> in the trusted data directory, with rename, delete, and new-chat controls in the sidebar. Pending approvals are persisted with the transcript, so a restart does not silently drop or silently apply one.</p>
+<p>A turn that the app stopped in the middle of comes back marked cancelled rather than being replayed. Nothing resumes on its own.</p>
+<h2 id="what-chat-is-not">What chat is not<a class="anchor" href="#what-chat-is-not" aria-label="Link to this section">#</a></h2>
+<p>Chat output is <strong>not verified work</strong>. No chat message, tool result, or approval can satisfy a mission check, and a verified run never writes through the chat approval path.</p>
+<p>If a result has to be machine-certified — a report with required facts, a structured extraction, a screenshot review — use <a href="verified-tasks.html">Verified tasks</a>, which freezes the acceptance contract before execution and records provenance for every check.</p>
+<div class="callout callout-note"><p class="callout-title">Development demo mode</p><p><code>?demo=1</code> in a development build renders the verified-task surface only. Chat is intentionally unavailable there and says so. The production bundle contains no demo bridge at all.</p></div>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/chat.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="install.html"><span>Previous</span><strong>Install</strong></a><a class="pager-link pager-next" href="models.html"><span>Next</span><strong>Models</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#anatomy-of-a-turn">Anatomy of a turn</a></li><li class="toc-h2"><a href="#routing">Routing</a></li><li class="toc-h2"><a href="#decision-gates">Decision gates</a></li><li class="toc-h2"><a href="#tools-in-a-turn">Tools in a turn</a></li><li class="toc-h2"><a href="#context-window">Context window</a></li><li class="toc-h2"><a href="#image-attachments">Image attachments</a></li><li class="toc-h2"><a href="#voice-input">Voice input</a></li><li class="toc-h2"><a href="#voice-replies">Voice replies</a></li><li class="toc-h2"><a href="#sessions">Sessions</a></li><li class="toc-h2"><a href="#what-chat-is-not">What chat is not</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

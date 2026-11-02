@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jobs — LFM3 Workspace documentation</title>
+    <meta name="description" content="The agent loop in the desktop app: describe a job, watch plan, work, and review phases, and read a finish that is measured rather than claimed." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Jobs — LFM3 Workspace documentation" />
+    <meta property="og:description" content="The agent loop in the desktop app: describe a job, watch plan, work, and review phases, and read a finish that is measured rather than claimed." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jobs — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="The agent loop in the desktop app: describe a job, watch plan, work, and review phases, and read a finish that is measured rather than claimed." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html#article",
+      "headline": "Jobs",
+      "description": "The agent loop in the desktop app: describe a job, watch plan, work, and review phases, and read a finish that is measured rather than claimed.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Jobs",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/jobs.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html" aria-current="page" class="is-active">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Jobs</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Using the app</p>
+          <h1>Jobs</h1>
+          <p class="docs-lede">A job is open-ended work: no frozen step list, a live todo list the model maintains, and a required output that must exist on disk before the job can pass.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>6 min read</span>
+          </p>
+
+<p>A job is open-ended work the way an interactive coding agent does it: you state a goal, the model keeps its own todo list, calls tools, reads the real output of each call, and chooses the next action from what it observed. There is no frozen step list.</p>
+<p>If you need a plan approved up front, use a <a href="verified-tasks.html">verified task</a> or the plan-first <code>lfm3 task</code> command. If you need a conversation, use <a href="chat.html">Chat</a>.</p>
+<h2 id="describe-a-job">Describe a job<a class="anchor" href="#describe-a-job" aria-label="Link to this section">#</a></h2>
+<p>The desktop panel asks for four things:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Goal</td><td>What to accomplish, in plain language</td></tr><tr><td>Required output</td><td>Optional file the job must produce, relative to the workspace</td></tr><tr><td>Minute budget</td><td>Whole-job deadline</td></tr><tr><td>Turn cap</td><td>Most model turns before the loop stops</td></tr></tbody></table></div>
+<figure class="figure">
+  <a class="figure-shot" href="../assets/docs/app-tasks.png">
+    <picture>
+      <source srcset="../assets/docs/app-tasks.webp" type="image/webp" />
+      <img src="../assets/docs/app-tasks.png" alt="The Tasks panel with a Start a task card, a Job field holding a multi-line goal, a Required output field set to out/report.md, and a note that the job only counts as finished when that file exists and has content." width="1584" height="820" loading="lazy" decoding="async" />
+    </picture>
+    <span class="figure-pins" aria-hidden="true"><span class="figure-pin" style="--x:5.2%;--y:34.5%">1</span><span class="figure-pin" style="--x:4.4%;--y:57%">2</span><span class="figure-pin" style="--x:4.4%;--y:86.6%">3</span><span class="figure-pin" style="--x:3.9%;--y:96.3%">4</span></span>
+  </a>
+  <figcaption class="figure-caption">
+    <span>The Tasks panel for a new job. A required output is what turns "finished" into something the harness can measure.</span>
+    <span class="figure-hint">Numbers match the list below · click the image to enlarge</span>
+  </figcaption>
+  <ol class="figure-key"><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">1</span><span class="figure-key-text"><strong>Start a task</strong><span>The job panel. It runs the same loop as <code>lfm3 job</code> and streams every turn into this view.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">2</span><span class="figure-key-text"><strong>Job</strong><span>The goal in plain language. The model writes its own todo list from it; no step list is frozen here.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">3</span><span class="figure-key-text"><strong>Required output</strong><span>Optional path, relative to the workspace, that the job must produce before it can pass.</span></span></li><li class="figure-key-item"><span class="figure-key-num" aria-hidden="true">4</span><span class="figure-key-text"><strong>Measured finish</strong><span>Size and fingerprint are recorded for that file, so a claim of completion is checked rather than accepted.</span></span></li></ol>
+</figure>
+<p>The engine then runs the same model-driven loop as <code>lfm3 job</code> and streams every turn to the app. The panel shows each turn's phase, the model's own todo list with each step's check and status, each turn's tool calls with their real output, and the measured output bytes and digest. There is no acceptance hash, because a job is not verified mission work.</p>
+<h2 id="the-three-phases">The three phases<a class="anchor" href="#the-three-phases" aria-label="Link to this section">#</a></h2>
+<p><strong>plan.</strong> Before any workspace action, the model must call <code>todo_write</code> with one to eight short steps. The plan cannot be empty, and <code>finish</code> is refused until it exists. Every step that creates or changes a file should carry a deterministic check: <code>file_exists</code>, <code>dir_exists</code>, or <code>content_matches</code> with a non-empty needle.</p>
+<p><strong>work.</strong> One bounded action at a time advances an open step. Marking a step done is measured: the harness runs its check against the real workspace and demotes a <code>done</code> claim whose check fails. Once every source has been read, the tool set narrows to <code>write_file</code>, so the only way forward is the artifact.</p>
+<p><strong>review.</strong> Writing a non-empty deliverable opens a review turn: the model re-reads the file, compares it with the goal, and either repairs it or finishes. A first <code>finish</code> without a re-read is refused once with a concrete instruction; the measured proof still decides the result.</p>
+<p>The brief also carries an advisory grounding note listing multi-digit numbers in the output that appear in no observed source, so the model can verify or remove them. The note never changes the status.</p>
+<h2 id="what-the-harness-enforces">What the harness enforces<a class="anchor" href="#what-the-harness-enforces" aria-label="Link to this section">#</a></h2>
+<ul><li><strong>The model cannot grade itself.</strong> <code>finish</code> is accepted only when the required output exists and is non-empty. The report carries the measured bytes and digest. A bare "finished" is refused and the model is told to keep working.</li><li><strong>Every turn is evidence.</strong> Each tool call and its real output is recorded, and a repeated identical call is refused instead of quietly looping. A call refused before execution never counts as "seen", so a later phase can still take it.</li><li><strong>The harness steers.</strong> Unread sources are named in the prompt, and the tool set narrows to <code>write_file</code> once they have all been read.</li><li><strong>Writes are guarded.</strong> An empty or placeholder write is refused, and a source file the job is supposed to read cannot be overwritten. A job that is supposed to produce <code>out/report.md</code> is told to write that file, not another one.</li><li><strong>Tools follow the route.</strong> <code>search_files</code> and <code>related_files</code> are always granted; <code>look</code> and <code>transcribe</code> only when the route selects the vision or audio model. Routing widens capability, never authority.</li><li><strong>Stopping is honest.</strong> Every stop reason is reported as what it is, and no turn cap is ever reported as success.</li></ul>
+<h2 id="limits">Limits<a class="anchor" href="#limits" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Bound</th><th scope="col">Default</th><th scope="col">Notes</th></tr></thead><tbody><tr><td>Whole-job deadline</td><td>30 minutes</td><td><code>--minutes</code> on the CLI; the form takes minutes</td></tr><tr><td>Model turns</td><td>40</td><td><code>--max-turns</code>; the desktop form takes a turn cap</td></tr><tr><td>Tool calls per turn</td><td>3</td><td><code>--max-calls</code>, clamped to 1–4</td></tr><tr><td>Plan size</td><td>1–8 steps</td><td>Enforced by <code>todo_write</code></td></tr><tr><td>Turns without a plan</td><td>3</td><td>Then the loop stops as <code>stalled</code></td></tr><tr><td>Turns without a write</td><td>6</td><td>Then the loop stops as <code>stalled</code></td></tr></tbody></table></div>
+<p>The acting model's profile is the ceiling on all of these. A request for more turns than the profile allows is clamped to what the model can actually sustain, rather than being honoured and then failing late.</p>
+<h2 id="outcomes">Outcomes<a class="anchor" href="#outcomes" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Status</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>passed</code></td><td>The required output exists, is non-empty, and its digest was measured</td></tr><tr><td><code>unverified</code></td><td>The loop finished without a measurable artifact to certify</td></tr><tr><td><code>turn_budget</code></td><td>The turn cap was reached</td></tr><tr><td><code>deadline</code></td><td>The minute budget ran out</td></tr><tr><td><code>stalled</code></td><td>Repeated turns without progress in the loop's terms</td></tr><tr><td><code>interrupted</code></td><td>The engine stopped mid-job; it is reported, never resumed</td></tr></tbody></table></div>
+<p>A measured artifact can still pass a stalled review turn: if the file exists and verifies, the job's result is what the file says, not what the last turn claimed.</p>
+<h2 id="jobs-on-the-command-line">Jobs on the command line<a class="anchor" href="#jobs-on-the-command-line" aria-label="Link to this section">#</a></h2>
+<div class="code-block"><pre><code class="language-bash">lfm3 job \
+  --goal "Read notes/ and write out/report.md, one section per note" \
+  --workspace ./demo \
+  --deliverable out/report.md \
+  --minutes 30 \
+  --max-turns 24 \
+  --events -</code></pre></div>
+<p><code>--deliverable</code> is detected from the goal when omitted. <code>--events -</code> writes durable JSON lines to stdout. The full flag list is in the <a href="cli.html">CLI reference</a>.</p>
+<p>A measured example from the project's own run log: a four-turn job — plan (<code>todo_write</code>), work (<code>read_file notes.md</code>), work (<code>write_file</code> 483 bytes to <code>out/report.md</code>), review (<code>read_file out/report.md</code>) — exited 0 with <code>status: "passed"</code> and the report carrying the measured 483 bytes and digest <code>35b845745a0c6a4a</code>.</p>
+<h2 id="job-versus-task">Job versus task<a class="anchor" href="#job-versus-task" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col"><code>lfm3 job</code> and the desktop job panel</th><th scope="col"><code>lfm3 task</code></th></tr></thead><tbody><tr><td>Plan</td><td>Written by the model in the loop</td><td>Frozen and validated before execution</td></tr><tr><td>Approval</td><td>The same workspace tools and approval path</td><td>Each step approved before it runs</td></tr><tr><td>Shape</td><td>Model-chosen, one action at a time</td><td>A fixed ordered plan, every step with a check</td></tr><tr><td>Best for</td><td>Discovery, extraction, open-ended drafting</td><td>Predictable, reviewable, repeatable work</td></tr></tbody></table></div>
+<p><code>lfm3 task</code> also enforces the plan floor: <code>--steps</code> caps the plan (default 16), <code>--min-steps</code> refuses a plan that collapses into one call (default 2), and every step must declare at least one check. A <code>write_file</code> or <code>edit_file</code> step whose checks name no file path is rejected before the acceptance is frozen, so an untestable step never runs.</p>
+<h2 id="where-jobs-live">Where jobs live<a class="anchor" href="#where-jobs-live" aria-label="Link to this section">#</a></h2>
+<p>Jobs are stored in <code>jobs.db</code> in the trusted data directory. Events arrive on the <code>lfm3:job-event</code> channel. A job the engine stopped in the middle of is reported as <code>interrupted</code> rather than resumed, matching the rule for verified runs.</p>
+<h2 id="when-a-job-does-not-finish">When a job does not finish<a class="anchor" href="#when-a-job-does-not-finish" aria-label="Link to this section">#</a></h2>
+<p>Most honest failures are a goal that is too broad for a 1.7B model. Practical adjustments, in order:</p>
+<ol><li><strong>Name the output path.</strong> A deliverable in the goal is frozen as the required artifact.</li><li><strong>Narrow the source set.</strong> Instead of "read the project", say "read <code>notes/*.md</code>".</li><li><strong>Give it one job.</strong> Splitting "summarise, then rewrite, then chart" into three jobs beats raising the turn cap.</li><li><strong>Raise the deadline only after the goal is narrow.</strong> More turns on a vague goal produce repetition, not progress.</li></ol>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/jobs.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="approvals.html"><span>Previous</span><strong>Approvals and safety</strong></a><a class="pager-link pager-next" href="verified-tasks.html"><span>Next</span><strong>Verified tasks</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#describe-a-job">Describe a job</a></li><li class="toc-h2"><a href="#the-three-phases">The three phases</a></li><li class="toc-h2"><a href="#what-the-harness-enforces">What the harness enforces</a></li><li class="toc-h2"><a href="#limits">Limits</a></li><li class="toc-h2"><a href="#outcomes">Outcomes</a></li><li class="toc-h2"><a href="#jobs-on-the-command-line">Jobs on the command line</a></li><li class="toc-h2"><a href="#job-versus-task">Job versus task</a></li><li class="toc-h2"><a href="#where-jobs-live">Where jobs live</a></li><li class="toc-h2"><a href="#when-a-job-does-not-finish">When a job does not finish</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

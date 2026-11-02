@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Troubleshooting — LFM3 Workspace documentation</title>
+    <meta name="description" content="Fix the common problems: missing models, busy ports, SmartScreen, WebKitGTK errors, a silent microphone, slow turns, refused jobs, and how to collect diagnostics." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Troubleshooting — LFM3 Workspace documentation" />
+    <meta property="og:description" content="Fix the common problems: missing models, busy ports, SmartScreen, WebKitGTK errors, a silent microphone, slow turns, refused jobs, and how to collect diagnostics." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Troubleshooting — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="Fix the common problems: missing models, busy ports, SmartScreen, WebKitGTK errors, a silent microphone, slow turns, refused jobs, and how to collect diagnostics." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html#article",
+      "headline": "Troubleshooting",
+      "description": "Fix the common problems: missing models, busy ports, SmartScreen, WebKitGTK errors, a silent microphone, slow turns, refused jobs, and how to collect diagnostics.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Troubleshooting",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/troubleshooting.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html" aria-current="page" class="is-active">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Troubleshooting</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Under the hood</p>
+          <h1>Troubleshooting</h1>
+          <p class="docs-lede">Most problems are a missing model, a busy port, or a platform library. Start with the symptom table, then run the diagnostics command it points to.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>6 min read</span>
+          </p>
+
+<p>Most problems are a missing model, a busy port, or a platform library. Start with the symptom table, then run the diagnostics command it points to.</p>
+<h2 id="first-read-the-health-report">First: read the health report<a class="anchor" href="#first-read-the-health-report" aria-label="Link to this section">#</a></h2>
+<div class="code-block"><pre><code class="language-bash">lfm3 doctor --probe-models</code></pre></div>
+<p>On Windows, run it from the install folder or through a source checkout with <code>cargo run -p lfm3-cli -- doctor --probe-models</code>. It reports the resolved runtime path, every model endpoint and the identity it serves, the models folder, the workspace, and every missing item.</p>
+<h2 id="symptom-table">Symptom table<a class="anchor" href="#symptom-table" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Symptom</th><th scope="col">Likely cause</th><th scope="col">Fix</th></tr></thead><tbody><tr><td>Every role says <strong>Missing</strong> after install</td><td>Weights are downloaded separately</td><td>Open <strong>Models</strong> and download the text role at minimum</td></tr><tr><td>A downloaded role still says <strong>Missing</strong></td><td>Scan happened before the file landed, or the folder is elsewhere</td><td>Choose <strong>Reload installed models</strong>; check the path at the top of the menu</td></tr><tr><td>Chat says the model is unavailable</td><td>Text role missing, or the port is held by something else</td><td>Download the text role; check ports 8080–8083</td></tr><tr><td>Windows warns about the installer</td><td>It is not code-signed</td><td>Verify the SHA-256, then <strong>More info → Run anyway</strong></td></tr><tr><td>Linux app fails to start</td><td>Missing WebKitGTK 4.1 / GTK 3</td><td>Install the packages named in the error; the <code>.deb</code> declares them</td></tr><tr><td>AppImage does not run</td><td>FUSE is unavailable</td><td><code>--appimage-extract</code> and run <code>AppRun</code></td></tr><tr><td>Microphone never captures</td><td>OS permission, or audio role missing</td><td>Grant microphone access; install the audio role and its <code>mmproj</code></td></tr><tr><td><strong>Speak</strong> does nothing</td><td>Voice pair incomplete</td><td>Install <code>llama-tts</code> weights; on Linux there is no system-voice fallback</td></tr><tr><td>A write never shows an approval card</td><td>The write gate held it</td><td>Read the gate chip; rephrase the request if the hold was wrong</td></tr><tr><td>The job stops as <code>stalled</code></td><td>No plan or repeated non-progress</td><td>Narrow the goal; name the output file</td></tr><tr><td>A verified task's <strong>Start</strong> is disabled</td><td><code>human_review_only</code> mission</td><td>Expected: automatic semantic passing is not qualified</td></tr><tr><td>"Cannot switch workspace"</td><td>A turn, job, or run is live</td><td>Stop it, then switch</td></tr></tbody></table></div>
+<h2 id="models-and-downloads">Models and downloads<a class="anchor" href="#models-and-downloads" aria-label="Link to this section">#</a></h2>
+<p><strong>A download fails or never finishes.</strong> Only one role downloads at a time. Cancel the active one before starting another. A failed verification discards the <code>.part</code> file; retry the download rather than reusing it. Check free disk space — all four roles need about 4.9 GB.</p>
+<p><strong>The SHA-256 check fails.</strong> The file arrived corrupt or was modified in transit. Delete the <code>.part</code> file and download again. Do not rename a partial file into place: the digest is the identity of the weight.</p>
+<p><strong>You copied weights in by hand.</strong> Keep the repository subfolder layout, then choose <strong>Reload installed models</strong>. The app verifies byte length and SHA-256; a mismatched file is reported rather than used.</p>
+<p><strong>The models folder is on another drive.</strong> Set <code>LFM3_MODELS_DIR</code> to that folder, or set <code>models_dir</code> in <code>setup.json</code>. Use an absolute path; a relative path is not resolved against your shell's working directory.</p>
+<h2 id="ports">Ports<a class="anchor" href="#ports" aria-label="Link to this section">#</a></h2>
+<p>The four roles use 8080, 8081, 8082, and 8083 on loopback. If another tool holds one, the role cannot start.</p>
+<p><strong>Linux</strong></p>
+<div class="code-block"><pre><code class="language-bash">ss -lntp | grep -E ':(8080|8081|8082|8083)'</code></pre></div>
+<p><strong>Windows (PowerShell)</strong></p>
+<div class="code-block"><pre><code class="language-powershell">Get-NetTCPConnection -State Listen | Where-Object LocalPort -in 8080,8081,8082,8083 |
+  Select-Object LocalAddress, LocalPort, OwningProcess</code></pre></div>
+<p>Either stop the other process, or point the role at another loopback port with <code>LFM3_TEXT_URL</code> (and the matching <code>*_URL</code> variable). If you already run your own llama-server, <code>--external</code> lets the CLI reuse it instead of owning one.</p>
+<h2 id="platform-issues">Platform issues<a class="anchor" href="#platform-issues" aria-label="Link to this section">#</a></h2>
+<h3 id="windows" class="sub">Windows<a class="anchor" href="#windows" aria-label="Link to this section">#</a></h3>
+<ul><li><strong>SmartScreen.</strong> The installers are unsigned. Verify the checksum from the <a href="install.html">Install</a> page, then choose <strong>More info → Run anyway</strong>. There is no certificate to look for and no way to make the dialog disappear without signing the build.</li><li><strong>Installed to a path with a space.</strong> That is by design (<code>%LOCALAPPDATA%\LFM3 Workspace</code>) and exercised by the project's own smoke test.</li><li><strong>Missing VC++ DLLs.</strong> The bundle includes <code>vcruntime140.dll</code>, <code>vcruntime140_1.dll</code>, and <code>msvcp140.dll</code>. If a repair removed them, reinstall.</li></ul>
+<h3 id="linux" class="sub">Linux<a class="anchor" href="#linux" aria-label="Link to this section">#</a></h3>
+<ul><li><strong>WebKitGTK errors on launch.</strong> Install the development and runtime packages for WebKitGTK 4.1 and GTK 3; <code>run.sh deps</code> prints the exact command for your distribution.</li><li><strong>AppImage will not start.</strong> If FUSE is missing, extract and run:</li></ul>
+<div class="code-block"><pre><code class="language-bash">./LFM3.Workspace_0.1.1_amd64.AppImage --appimage-extract
+./squashfs-root/AppRun</code></pre></div>
+<ul><li><strong>A system <code>libllama</code> conflicts.</strong> Packaged libraries are already first in <code>LD_LIBRARY_PATH</code> for owned processes. If you run your own server, keep its libraries and the bundled ones on separate paths.</li><li><strong>No system voice.</strong> Linux has no SAPI equivalent, so an incomplete voice pair means speech output is reported unavailable rather than silently substituting a different voice.</li></ul>
+<h2 id="voice">Voice<a class="anchor" href="#voice" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Problem</th><th scope="col">Check</th></tr></thead><tbody><tr><td>Microphone button does nothing</td><td>OS microphone permission for the app</td></tr><tr><td>"Voice model unavailable"</td><td>Audio GGUF <strong>and</strong> its <code>mmproj</code> are both installed</td></tr><tr><td>Transcript is empty</td><td>The clip was silent; the harness refuses an empty recording rather than inventing text</td></tr><tr><td>Speech output uses a robotic voice on Windows</td><td>That is the offline system voice, labelled <code>system-sapi</code>; install the voice pair for the local model</td></tr><tr><td>Speech output fails on Linux</td><td><code>llama-tts</code> is missing or the voice pair is incomplete</td></tr></tbody></table></div>
+<p>The local audio model transcribes verbatim. It does not label speakers or add timestamps, so a transcript without them is correct behaviour, not a bug.</p>
+<h2 id="chat-behaviour-that-looks-like-a-bug">Chat behaviour that looks like a bug<a class="anchor" href="#chat-behaviour-that-looks-like-a-bug" aria-label="Link to this section">#</a></h2>
+<ul><li><strong>A second message is refused while a turn is live.</strong> One bounded turn at a time is deliberate; the error is visible rather than queued.</li><li><strong>The turn stops by itself.</strong> A turn allows at most twelve tool rounds. Ask for the next step.</li><li><strong>A write is missing its approval card.</strong> The write gate may have held it. The gate chip under the conversation states the outcome; a hold means nothing was written and the model was told not to retry.</li><li><strong>The model says it finished but the file is empty.</strong> Chat is not verified work. For a measured result, use <a href="jobs.html">Jobs</a> or <a href="verified-tasks.html">Verified tasks</a>.</li><li><strong>Routing picked the wrong intent.</strong> It selects capability hints only. Rephrase with an explicit verb and file name; a missing or low-confidence decision model falls back to keywords.</li></ul>
+<h2 id="jobs-and-verified-runs">Jobs and verified runs<a class="anchor" href="#jobs-and-verified-runs" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Status</th><th scope="col">What to change</th></tr></thead><tbody><tr><td><code>turn_budget</code></td><td>Narrow the goal or produce the output sooner; raising the cap on a vague goal usually repeats work</td></tr><tr><td><code>deadline</code></td><td>Same, plus a realistic minute budget</td></tr><tr><td><code>stalled</code></td><td>The loop saw three turns without a plan or six without a write; restate the goal with one concrete deliverable</td></tr><tr><td><code>unverified</code></td><td>No measurable artifact; name the required output path</td></tr><tr><td><code>interrupted</code></td><td>The engine stopped mid-run. It is never resumed; start a new job</td></tr><tr><td><code>incomplete</code> / <code>no_progress</code></td><td>A verified run exhausted its retries without passing. Read the check evidence in the report</td></tr></tbody></table></div>
+<p>A verified mission with <code>human_review_only</code> cannot be started at all. That is the qualification gate, not a configuration problem; see <a href="verified-tasks.html">Verified tasks</a>.</p>
+<h2 id="reset-state">Reset state<a class="anchor" href="#reset-state" aria-label="Link to this section">#</a></h2>
+<p>Back up first. There is no migration between versions and no recovery for a deleted transcript.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">What</th><th scope="col">Where</th></tr></thead><tbody><tr><td>One conversation</td><td>Delete it in the chat sidebar</td></tr><tr><td>All conversations and approvals</td><td><code>chat.db</code> in the data directory</td></tr><tr><td>Jobs</td><td><code>jobs.db</code></td></tr><tr><td>Verified-run history</td><td><code>runs.db</code> in the data directory</td></tr><tr><td>Workspace choice</td><td><code>workspace</code> in <code>setup.json</code>, or the folder chip</td></tr><tr><td>Models</td><td>The <code>models</code> folder</td></tr></tbody></table></div>
+<p>Removing the whole data directory returns the app to a fresh install while keeping your workspace files untouched.</p>
+<h2 id="what-to-include-in-a-bug-report">What to include in a bug report<a class="anchor" href="#what-to-include-in-a-bug-report" aria-label="Link to this section">#</a></h2>
+<ol><li>Version from the footer or the Models menu, and the platform.</li><li>Output of <code>lfm3 doctor --probe-models</code>.</li><li>The model states (Loaded / Installed / Missing) for all four roles.</li><li>The exact error text, copied rather than paraphrased.</li><li>The smallest workspace that reproduces it, and whether a fresh folder behaves the same.</li><li>For a verified run: the run id, so the journal state can be read with <code>lfm3 status &lt;run-id&gt;</code>.</li></ol>
+<p>Reports that name the file path and say what was expected versus observed are the ones that get fixed.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/troubleshooting.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="privacy.html"><span>Previous</span><strong>Privacy, security, and licensing</strong></a><a class="pager-link pager-next" href="building.html"><span>Next</span><strong>Build from source</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#first-read-the-health-report">First: read the health report</a></li><li class="toc-h2"><a href="#symptom-table">Symptom table</a></li><li class="toc-h2"><a href="#models-and-downloads">Models and downloads</a></li><li class="toc-h2"><a href="#ports">Ports</a></li><li class="toc-h2"><a href="#platform-issues">Platform issues</a></li><li class="toc-h3"><a href="#windows">Windows</a></li><li class="toc-h3"><a href="#linux">Linux</a></li><li class="toc-h2"><a href="#voice">Voice</a></li><li class="toc-h2"><a href="#chat-behaviour-that-looks-like-a-bug">Chat behaviour that looks like a bug</a></li><li class="toc-h2"><a href="#jobs-and-verified-runs">Jobs and verified runs</a></li><li class="toc-h2"><a href="#reset-state">Reset state</a></li><li class="toc-h2"><a href="#what-to-include-in-a-bug-report">What to include in a bug report</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

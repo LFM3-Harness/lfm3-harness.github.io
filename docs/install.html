@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Install — LFM3 Workspace documentation</title>
+    <meta name="description" content="Install LFM3 Workspace on Windows, install the Linux desktop packages or the headless CLI, verify checksums, and remove the app cleanly." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/install.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Install — LFM3 Workspace documentation" />
+    <meta property="og:description" content="Install LFM3 Workspace on Windows, install the Linux desktop packages or the headless CLI, verify checksums, and remove the app cleanly." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/install.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Install — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="Install LFM3 Workspace on Windows, install the Linux desktop packages or the headless CLI, verify checksums, and remove the app cleanly." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/install.html#article",
+      "headline": "Install",
+      "description": "Install LFM3 Workspace on Windows, install the Linux desktop packages or the headless CLI, verify checksums, and remove the app cleanly.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/install.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/install.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Install",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/install.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html" aria-current="page" class="is-active">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Install</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Get started</p>
+          <h1>Install</h1>
+          <p class="docs-lede">Three packages, one engine. The installers carry the pinned llama.cpp runtime and no model weights, so the download stays small and the models arrive when you ask for them.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>5 min read</span>
+          </p>
+
+<p>LFM3 Workspace ships as three packages built from one tag: a Windows installer, Linux desktop packages, and a headless Linux CLI archive. All of them include the pinned llama.cpp CPU runtime. None of them include model weights.</p>
+<h2 id="requirements">Requirements<a class="anchor" href="#requirements" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col">Minimum</th><th scope="col">Notes</th></tr></thead><tbody><tr><td>OS</td><td>Windows 10/11 x64, or Linux x86_64</td><td>No macOS or ARM build</td></tr><tr><td>Memory</td><td>8 GB</td><td>Practical minimum for chat with the text model; more helps with vision, voice, and routing</td></tr><tr><td>Disk</td><td>250 MB for the app</td><td>Plus about 4.9 GB for all four model roles</td></tr><tr><td>Graphics</td><td>None</td><td>CPU inference only (<code>-ngl 0</code>)</td></tr><tr><td>Linux desktop</td><td>WebKitGTK 4.1, GTK 3</td><td>Declared as package dependencies; the <code>.deb</code> installs them</td></tr><tr><td>Network</td><td>Only for the download you start</td><td>After setup the app works offline</td></tr></tbody></table></div>
+<p>The Linux CLI needs none of the desktop libraries. It runs on Ubuntu 22.04 or newer with a CPU-supported <code>glibc</code>.</p>
+<h2 id="download">Download<a class="anchor" href="#download" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Platform</th><th scope="col">Asset</th><th scope="col">Size</th><th scope="col">SHA-256</th></tr></thead><tbody><tr><td>Windows x64 · Desktop</td><td><code>LFM3.Workspace_0.1.1_x64-setup.exe</code></td><td>15,963,656 bytes</td><td><code>bcc48a54df4e6d4a9ad726f6739affb26a1fe765034f4c194fea714969b07afc</code></td></tr><tr><td>Linux x64 · Desktop</td><td><code>LFM3.Workspace_0.1.1_amd64.deb</code></td><td>38,908,078 bytes</td><td><code>c6927532f0afff0e558c191a09c829d9f1748d6820c25269e155cf0e7974ec63</code></td></tr><tr><td>Linux x64 · Desktop</td><td><code>LFM3.Workspace_0.1.1_amd64.AppImage</code></td><td>104,471,032 bytes</td><td><code>f5b9b51e644d8a62352350f7b80e4aac123841a4ed2b9ba9755132bf24394be8</code></td></tr><tr><td>Linux x64 · CLI</td><td><code>LFM3-Workspace_0.1.1_linux-x64_cli.tar.gz</code></td><td>23,280,893 bytes</td><td><code>3fd32bce54b797eae89a8e279cff5a047c1f2783ded135ae05a028fc0087bea7</code></td></tr></tbody></table></div>
+<p>All four files are attached to the <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1" target="_blank" rel="noopener noreferrer">v0.1.1 release</a>, with the same table and the changes since v0.1.0 in the <a href="https://github.com/LFM3-Harness/LFM3-Harness/blob/main/docs/releases/v0.1.1.md" target="_blank" rel="noopener noreferrer">release notes</a>.</p>
+<h2 id="verify-what-you-downloaded">Verify what you downloaded<a class="anchor" href="#verify-what-you-downloaded" aria-label="Link to this section">#</a></h2>
+<p>The published SHA-256 is the last line of defence before you run a binary. Check it once; it takes a few seconds.</p>
+<p><strong>Windows (PowerShell)</strong></p>
+<div class="code-block"><pre><code class="language-powershell">Get-FileHash .\LFM3.Workspace_0.1.1_x64-setup.exe -Algorithm SHA256</code></pre></div>
+<p><strong>Linux</strong></p>
+<div class="code-block"><pre><code class="language-bash">sha256sum LFM3.Workspace_0.1.1_amd64.deb</code></pre></div>
+<p>Compare the output with the table above. Every model file is verified separately by the app when it downloads weights.</p>
+<h2 id="install-on-windows">Install on Windows<a class="anchor" href="#install-on-windows" aria-label="Link to this section">#</a></h2>
+<ol><li>Run <code>LFM3.Workspace_0.1.1_x64-setup.exe</code>. The installer is unsigned, so Windows SmartScreen may show <em>Windows protected your PC</em>. Choose <strong>More info → Run anyway</strong> only if your checksum matches.</li><li>The installer is per user and needs no administrator rights. It installs to <code>%LOCALAPPDATA%\LFM3 Workspace</code> and adds a Start-menu entry named <strong>LFM3 Workspace</strong>.</li><li>Launch the app. It opens on chat with the bundled runtime detected and every model role marked <strong>Missing</strong>.</li><li>Open <strong>Models</strong> and download at least the text role. See <a href="models.html">Models</a> for the catalog.</li></ol>
+<p>The install path contains a space. That is deliberate and exercised by the project's installed smoke test, because paths with spaces break naive child-process handling.</p>
+<h2 id="install-the-linux-desktop">Install the Linux desktop<a class="anchor" href="#install-the-linux-desktop" aria-label="Link to this section">#</a></h2>
+<p><strong>Debian or Ubuntu</strong></p>
+<div class="code-block"><pre><code class="language-bash">sudo apt install ./LFM3.Workspace_0.1.1_amd64.deb
+lfm3-desktop</code></pre></div>
+<p>The package declares its WebKitGTK 4.1 and GTK 3 dependencies, installs a desktop entry, and places the bundled llama.cpp runtime under the app's resource directory (<code>/usr/lib/LFM3 Workspace/tools/llama</code>). The shell seeds <code>LFM3_LLAMA_SERVER</code> and <code>LFM3_LLAMA_TTS</code> from that resource directory before the engine reads its configuration, and never replaces a path you set yourself.</p>
+<p><strong>AppImage</strong></p>
+<div class="code-block"><pre><code class="language-bash">chmod +x LFM3.Workspace_0.1.1_amd64.AppImage
+./LFM3.Workspace_0.1.1_amd64.AppImage</code></pre></div>
+<p>The AppImage carries the runtime inside its mount point and resolves it the same way it resolves an installed one. If your distribution lacks FUSE, run the archive with <code>--appimage-extract</code> and start the extracted <code>AppRun</code>.</p>
+<p>Each harness-owned llama.cpp process gets its own directory at the front of <code>LD_LIBRARY_PATH</code>, so the packaged <code>libggml*</code>, <code>libllama*</code>, and <code>libmtmd*</code> are used even when a system copy exists.</p>
+<h2 id="install-the-linux-cli">Install the Linux CLI<a class="anchor" href="#install-the-linux-cli" aria-label="Link to this section">#</a></h2>
+<p>The CLI archive is not an installer. Unpack it anywhere and keep its layout:</p>
+<div class="code-block"><pre><code class="language-bash">tar -xzf LFM3-Workspace_0.1.1_linux-x64_cli.tar.gz
+cd LFM3-Workspace-linux-x64</code></pre></div>
+<div class="code-block"><pre><code class="language-text">LFM3-Workspace-linux-x64/
+  lfm3-cli              the headless binary
+  run.sh                wrapper that sets the local runtime and models paths
+  missions/             the four mission manifests
+  tools/llama/          llama-server, llama-tts, CPU libraries, RUNTIME.txt
+  models/               create this folder and put GGUF files in it</code></pre></div>
+<p>There is no model downloader in the CLI archive. Copy the pinned GGUF files into <code>models/</code> beside <code>run.sh</code>, or point <code>LFM3_MODELS_DIR</code> at an existing weights folder, then check the setup:</p>
+<div class="code-block"><pre><code class="language-bash">mkdir -p models
+./run.sh doctor
+./run.sh missions
+./run.sh models --probe</code></pre></div>
+<p><code>run.sh</code> defaults <code>LFM3_LLAMA_SERVER</code> to <code>tools/llama/llama-server</code> and <code>LFM3_MODELS_DIR</code> to <code>models</code> when you have not set them. Every command in the <a href="cli.html">CLI reference</a> works through it.</p>
+<h2 id="first-launch">First launch<a class="anchor" href="#first-launch" aria-label="Link to this section">#</a></h2>
+<p>On boot the engine performs read-only discovery: an explicit path first, then the usual local locations for <code>llama-server</code>, <code>llama-tts</code>, the GGUF directory, and the vision projector. Discovery never downloads, copies, or contacts the network. The health report lists every missing item plus the resolved workspace and models directory.</p>
+<p>To override discovery, either set environment variables (documented in <a href="configuration.html">Configuration</a>) or write <code>setup.json</code> into the data directory.</p>
+<h2 id="install-locations">Install locations<a class="anchor" href="#install-locations" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">What</th><th scope="col">Windows</th><th scope="col">Linux desktop</th><th scope="col">Linux CLI</th></tr></thead><tbody><tr><td>Application</td><td><code>%LOCALAPPDATA%\LFM3 Workspace</code></td><td><code>/usr/lib/LFM3 Workspace</code> (deb), AppImage mount</td><td>unpacked folder</td></tr><tr><td>State and databases</td><td><code>%LOCALAPPDATA%\LFM3Harness</code></td><td><code>$XDG_DATA_HOME/LFM3Harness</code> or <code>~/.local/share/LFM3Harness</code></td><td><code>LFM3_DATA_DIR</code>, default per <code>doctor</code></td></tr><tr><td>Weights</td><td><code>%LOCALAPPDATA%\LFM3Harness\models</code></td><td><code>$XDG_DATA_HOME/LFM3Harness/models</code></td><td><code>models/</code> beside <code>run.sh</code></td></tr><tr><td>Bundled runtime</td><td><code>&lt;install&gt;\tools\llama</code></td><td><code>/usr/lib/LFM3 Workspace/tools/llama</code></td><td><code>tools/llama</code></td></tr></tbody></table></div>
+<p>The data directory and the install directory are separate. Removing the app does not delete your transcripts, journals, or weights; the next section explains how to remove those deliberately.</p>
+<h2 id="update">Update<a class="anchor" href="#update" aria-label="Link to this section">#</a></h2>
+<p>Installing a newer build over an existing one keeps <code>%LOCALAPPDATA%\LFM3Harness</code> (or the XDG equivalent) intact: transcripts, journals, jobs, settings, and weights are all in the data directory, not beside the binary. On Linux, install the newer <code>.deb</code> with the same <code>apt install</code> command, or replace the AppImage file.</p>
+<p>Nothing updates itself. The app never checks for updates and never downloads a release in the background.</p>
+<h2 id="remove-it">Remove it<a class="anchor" href="#remove-it" aria-label="Link to this section">#</a></h2>
+<p><strong>Windows.</strong> Open <strong>Settings → Apps → Installed apps → LFM3 Workspace → Uninstall</strong>, or run <code>uninstall.exe</code> from the install folder. Then delete <code>%LOCALAPPDATA%\LFM3Harness</code> if you also want the transcripts and weights gone.</p>
+<p><strong>Linux desktop.</strong> Find the installed package name, then remove it:</p>
+<div class="code-block"><pre><code class="language-bash">dpkg -l | grep -i lfm
+sudo apt remove &lt;package-name&gt;</code></pre></div>
+<p>Delete <code>$XDG_DATA_HOME/LFM3Harness</code> (usually <code>~/.local/share/LFM3Harness</code>) to remove state and model weights.</p>
+<p><strong>Linux CLI.</strong> Delete the unpacked folder. Nothing outside it is created unless you set <code>LFM3_DATA_DIR</code>.</p>
+<div class="callout callout-warn"><p class="callout-title">Keep the runtime out of backups</p><p>The model weights are large and replaceable. If you back up your home directory, exclude the <code>models</code> folder inside the data directory to avoid copying several gigabytes per snapshot.</p></div>
+<h2 id="what-the-installers-contain">What the installers contain<a class="anchor" href="#what-the-installers-contain" aria-label="Link to this section">#</a></h2>
+<p>Both desktop bundles ship <code>missions/</code> plus the pinned CPU llama.cpp runtime: <code>llama-server</code>, <code>llama-tts</code>, the CPU backends, and the platform runtime libraries — the VC++ DLLs on Windows and the ELF shared libraries on Linux. The 594 MB CUDA backend, development tools, and all GGUF weights are excluded.</p>
+<p>Nothing is code-signed. That is a funding decision, not a claim about safety: verify the SHA-256 and read the source, which is MIT-licensed and published in full.</p>
+<h2 id="networking-during-install">Networking during install<a class="anchor" href="#networking-during-install" aria-label="Link to this section">#</a></h2>
+<p>The installer itself makes no network calls. The only outbound traffic in the entire product is:</p>
+<ol><li>Model downloads you start from <strong>Models</strong>, pinned to <code>huggingface.co/LiquidAI</code> with fixed names, lengths, and SHA-256 digests.</li><li>A link you click in the interface.</li><li>Opt-in PostHog tracing, when you set <code>POSTHOG_API_KEY</code> yourself.</li></ol>
+<p>The Tauri CLI fetches its own packaging tooling at build time, never from the installed application. Details and caveats are in <a href="privacy.html">Privacy, security, and licensing</a>.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/install.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="quickstart.html"><span>Previous</span><strong>Quickstart</strong></a><a class="pager-link pager-next" href="chat.html"><span>Next</span><strong>Chat</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#requirements">Requirements</a></li><li class="toc-h2"><a href="#download">Download</a></li><li class="toc-h2"><a href="#verify-what-you-downloaded">Verify what you downloaded</a></li><li class="toc-h2"><a href="#install-on-windows">Install on Windows</a></li><li class="toc-h2"><a href="#install-the-linux-desktop">Install the Linux desktop</a></li><li class="toc-h2"><a href="#install-the-linux-cli">Install the Linux CLI</a></li><li class="toc-h2"><a href="#first-launch">First launch</a></li><li class="toc-h2"><a href="#install-locations">Install locations</a></li><li class="toc-h2"><a href="#update">Update</a></li><li class="toc-h2"><a href="#remove-it">Remove it</a></li><li class="toc-h2"><a href="#what-the-installers-contain">What the installers contain</a></li><li class="toc-h2"><a href="#networking-during-install">Networking during install</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

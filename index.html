@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LFM3 Workspace — Local AI Coworker for Windows and Linux</title>
+    <title>LFM3 Workspace — a 15 MB harness that combines LFM3 models</title>
     <meta
       name="description"
-      content="Free local-first AI coworker for Windows and Linux. It reads your folder, drafts reports and edits, and asks before writing. Runs offline. No account or cloud."
+      content="A 15 MB Windows installer that combines four LFM3 models into one offline coworker. It reads your folder, drafts reports and edits, and asks before writing."
     />
     <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -15,10 +15,10 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="LFM3 Workspace" />
-    <meta property="og:title" content="LFM3 Workspace — a local AI coworker for your files" />
+    <meta property="og:title" content="LFM3 Workspace — a 15 MB harness that combines LFM3 models" />
     <meta
       property="og:description"
-      content="A free desktop AI assistant that runs entirely on your computer. Reads the folder you choose, drafts the work, and asks before writing. Windows and Linux. No account, no cloud, and no telemetry out of the box."
+      content="A free desktop harness that combines four LFM3 models into one local coworker. The Windows installer is 15 MB because no weights are bundled — they download in-app, verified, and never leave your machine."
     />
     <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/" />
     <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
@@ -26,10 +26,10 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="LFM3 Workspace — a coworker that runs on your computer." />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="LFM3 Workspace — a local AI coworker for your files" />
+    <meta name="twitter:title" content="LFM3 Workspace — a 15 MB harness that combines LFM3 models" />
     <meta
       name="twitter:description"
-      content="A free, local-first AI coworker for Windows and Linux. Reads your folder, drafts the work, asks before writing. No cloud, no account, no telemetry out of the box."
+      content="A 15 MB Windows installer that combines four LFM3 models into one offline coworker. Reads your folder, drafts the work, asks before writing. No account, no cloud."
     />
     <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
 
@@ -60,12 +60,13 @@
             "applicationCategory": "ProductivityApplication",
             "applicationSubCategory": "Local AI assistant",
             "operatingSystem": "Windows 10, Windows 11, Linux",
-            "description": "A free desktop AI coworker that runs Liquid AI's LFM3 models locally with llama.cpp. It reads a chosen folder, drafts reports and edits, and requires approval before writing anything. No account, no cloud, and no telemetry out of the box.",
+            "fileSize": "15.2 MB",
+            "description": "A 15 MB Windows installer that combines four LFM3 models into one local AI coworker, running Liquid AI's LFM3 family with llama.cpp. It reads a chosen folder, drafts reports and edits, and requires approval before writing anything. No account, no cloud, and no telemetry out of the box.",
             "isAccessibleForFree": true,
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "downloadUrl": "https://github.com/LFM3-Harness/LFM3-Harness/releases/download/v0.1.1/LFM3.Workspace_0.1.1_x64-setup.exe",
             "installUrl": "https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1",
-            "softwareHelp": "https://github.com/LFM3-Harness/LFM3-Harness/blob/main/docs/releases/v0.1.1.md",
+            "softwareHelp": "https://lfm3-harness.github.io/LFM3-Harness/docs/",
             "screenshot": [
               "https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/chat-desktop.png",
               "https://lfm3-harness.github.io/LFM3-Harness/assets/screenshots/harness-working.png"
@@ -76,6 +77,7 @@
               "Transcribes audio files in the folder: WAV, MP3, FLAC, OGG, M4A",
               "Image understanding: attach a PNG, JPEG, WebP, or GIF and inspect it with the local vision model",
               "Four local models cooperate on one task: d1-2B routes, LFM3-1.7B acts, LFM3-VL-2B looks, LFM3-Audio-2B hears and speaks",
+              "15.2 MB Windows installer with no skewed model weights; the 4.9 GB of GGUF weights download in-app, one role at a time",
               "32,000-token context for the acting model",
               "Reads, searches, and relates files across a chosen folder; no shell tool",
               "Drafts reports and edits with exact-diff approval, Allow once / Deny, and ten-minute expiry",
@@ -183,6 +185,7 @@
         <a href="#powers">Capabilities</a>
         <a href="#how">How it works</a>
         <a href="#screenshots">Screenshots</a>
+        <a href="#docs">Docs</a>
         <a href="#faq">FAQ</a>
         <a href="blog/index.html">Write-ups</a>
       </nav>
@@ -577,6 +580,81 @@
         </p>
       </section>
 
+      <section class="section" id="docs">
+        <div class="section-head">
+          <p class="label">Documentation</p>
+          <h2>Every switch, every limit, written down.</h2>
+        </div>
+
+        <p class="section-lede">
+          Fifteen pages cover installation, the four model roles, the approval flow, the agent loop, verified tasks,
+          the CLI, every configuration variable, the architecture, and what does and does not leave your machine.
+        </p>
+
+        <div class="download-grid">
+          <article class="download-card">
+            <p class="platform">Get started</p>
+            <h3>Install it and do real work</h3>
+            <p class="download-desc">
+              Requirements, both desktop packages, the CLI archive, checksums, and a ten-minute first run that ends
+              with an approved file edit.
+            </p>
+            <ul class="file-facts">
+              <li>Install</li>
+              <li>Quickstart</li>
+              <li>Models</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="docs/quickstart.html">
+              <span class="btn-label">Read the quickstart</span>
+              <span class="btn-meta">10 minutes</span>
+            </a>
+          </article>
+
+          <article class="download-card">
+            <p class="platform">Using the app</p>
+            <h3>Chat, approvals, and verified work</h3>
+            <p class="download-desc">
+              How a turn is routed, what the two decision gates can and cannot do, why every write waits for you,
+              and when a result must run as a verified task.
+            </p>
+            <ul class="file-facts">
+              <li>Chat</li>
+              <li>Approvals</li>
+              <li>Jobs</li>
+              <li>Verified tasks</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="docs/chat.html">
+              <span class="btn-label">Open the guide</span>
+              <span class="btn-meta">Behaviour and limits</span>
+            </a>
+          </article>
+
+          <article class="download-card">
+            <p class="platform">Reference</p>
+            <h3>CLI, tools, and configuration</h3>
+            <p class="download-desc">
+              Every <code>lfm3</code> command and flag, all nine tools with their caps, every <code>LFM3_</code>
+              variable, and the architecture behind the whole thing.
+            </p>
+            <ul class="file-facts">
+              <li>CLI</li>
+              <li>Tools</li>
+              <li>Configuration</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="docs/cli.html">
+              <span class="btn-label">Open the reference</span>
+              <span class="btn-meta">Commands and settings</span>
+            </a>
+          </article>
+        </div>
+
+        <p class="cta-note" style="margin-top: 1.4rem">
+          <a class="text-link" href="docs/index.html">Browse all documentation</a> · also available:
+          <a class="text-link" href="docs/privacy.html">privacy and licensing</a> and
+          <a class="text-link" href="docs/troubleshooting.html">troubleshooting</a>.
+        </p>
+      </section>
+
       <section class="section" id="download">
         <div class="section-head">
           <p class="label">Download</p>
@@ -868,7 +946,8 @@
         <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
         <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
         <a href="https://github.com/LFM3-Harness/LFM3-Harness/blob/main/docs/releases/v0.1.1.md">Install guide</a>
-        <a href="https://github.com/LFM3-Harness/LFM3-Harness/blob/main/README.md">Documentation</a>
+        <a href="docs/index.html">Documentation</a>
+        <a href="docs/troubleshooting.html">Troubleshooting</a>
         <a href="blog/index.html">Write-ups</a>
       </nav>
       <p class="disclaimer">

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configuration — LFM3 Workspace documentation</title>
+    <meta name="description" content="Every LFM3_ environment variable, the setup.json file, the trusted data directory, model and workspace resolution order, and the packaged profile." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Configuration — LFM3 Workspace documentation" />
+    <meta property="og:description" content="Every LFM3_ environment variable, the setup.json file, the trusted data directory, model and workspace resolution order, and the packaged profile." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Configuration — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="Every LFM3_ environment variable, the setup.json file, the trusted data directory, model and workspace resolution order, and the packaged profile." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html#article",
+      "headline": "Configuration",
+      "description": "Every LFM3_ environment variable, the setup.json file, the trusted data directory, model and workspace resolution order, and the packaged profile.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Configuration",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/configuration.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html" aria-current="page" class="is-active">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Configuration</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Reference</p>
+          <h1>Configuration</h1>
+          <p class="docs-lede">Configuration is read from the environment first and setup.json second. Discovery is read-only: boot never downloads, copies, or contacts a network.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>3 min read</span>
+          </p>
+
+<p>Configuration is read from the environment first and <code>setup.json</code> second. Discovery is read-only: boot never downloads, copies, or contacts a network.</p>
+<p>Run <code>lfm3 doctor</code> after any change. It prints the resolved values, every missing path, and the workspace and models directory the engine will actually use.</p>
+<h2 id="precedence">Precedence<a class="anchor" href="#precedence" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Layer</th><th scope="col">What it sets</th><th scope="col">Wins over</th></tr></thead><tbody><tr><td>Environment variables</td><td>Everything, including endpoints and limits</td><td><code>setup.json</code></td></tr><tr><td><code>setup.json</code></td><td>Runtime paths, models folder, default workspace</td><td>Built-in discovery</td></tr><tr><td>Bundled resources</td><td><code>LFM3_LLAMA_SERVER</code> and <code>LFM3_LLAMA_TTS</code> defaults from the package</td><td>Built-in discovery only; never a path you set</td></tr></tbody></table></div>
+<p>The desktop shell seeds runtime paths from its own resource directory so an installed package resolves its bundled llama.cpp exactly like a source checkout. A path you set yourself is never replaced.</p>
+<h2 id="data-directory">Data directory<a class="anchor" href="#data-directory" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Platform</th><th scope="col">Default</th></tr></thead><tbody><tr><td>Windows</td><td><code>%LOCALAPPDATA%\LFM3Harness</code>, falling back to <code>%USERPROFILE%\AppData\Local</code> when <code>LOCALAPPDATA</code> is missing</td></tr><tr><td>Linux</td><td><code>$XDG_DATA_HOME/LFM3Harness</code>, or <code>~/.local/share/LFM3Harness</code> when unset</td></tr></tbody></table></div>
+<p>It holds <code>setup.json</code>, <code>chat.db</code>, <code>jobs.db</code>, the verified-run journal, and the <code>models</code> folder. Override with <code>LFM3_DATA_DIR</code>.</p>
+<h2 id="environment-variables">Environment variables<a class="anchor" href="#environment-variables" aria-label="Link to this section">#</a></h2>
+<h3 id="core" class="sub">Core<a class="anchor" href="#core" aria-label="Link to this section">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>LFM3_PROFILE</code></td><td><code>cpu</code></td><td><code>cpu</code>, <code>gpu</code>, or <code>packaged</code>. See the packaged profile below</td></tr><tr><td><code>LFM3_WORKSPACE</code></td><td>none</td><td>Workspace folder; takes precedence over the saved folder</td></tr><tr><td><code>LFM3_DATA_DIR</code></td><td>platform default</td><td>Trusted state directory</td></tr><tr><td><code>LFM3_MODELS_DIR</code></td><td>data dir <code>models</code></td><td>GGUF weights folder; honoured by every package</td></tr><tr><td><code>LFM3_ALLOW_DOWNLOAD</code></td><td><code>false</code></td><td>Permits the download path; refused under <code>packaged</code></td></tr><tr><td><code>LFM3_REUSE_EXTERNAL_SERVERS</code></td><td><code>false</code></td><td>Reuse an already-running loopback server instead of owning one</td></tr></tbody></table></div>
+<h3 id="endpoints" class="sub">Endpoints<a class="anchor" href="#endpoints" aria-label="Link to this section">#</a></h3>
+<p>Each role has a loopback default. A non-loopback URL is rejected under the packaged profile.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th><th scope="col">Default</th></tr></thead><tbody><tr><td><code>LFM3_TEXT_URL</code></td><td><code>http://127.0.0.1:8080/v1</code></td></tr><tr><td><code>LFM3_VISION_URL</code></td><td><code>http://127.0.0.1:8081/v1</code></td></tr><tr><td><code>LFM3_AUDIO_URL</code></td><td><code>http://127.0.0.1:8082/v1</code></td></tr><tr><td><code>LFM3_D1_URL</code></td><td><code>http://127.0.0.1:8083/v1</code></td></tr><tr><td><code>LFM3_TEXT_MODEL</code></td><td><code>lfm3-1.7b</code></td></tr><tr><td><code>LFM3_VISION_MODEL</code></td><td><code>lfm3-vl-2b</code></td></tr><tr><td><code>LFM3_AUDIO_MODEL</code></td><td><code>lfm3-audio-2b</code></td></tr><tr><td><code>LFM3_D1_MODEL</code></td><td><code>d1-2b</code></td></tr></tbody></table></div>
+<h3 id="runtime-paths" class="sub">Runtime paths<a class="anchor" href="#runtime-paths" aria-label="Link to this section">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>LFM3_LLAMA_SERVER</code></td><td>Pinned b11960 / v0.8.0 <code>llama-server</code> (<code>llama-server.exe</code> on Windows)</td></tr><tr><td><code>LFM3_LLAMA_TTS</code></td><td><code>llama-tts</code> for local speech output</td></tr><tr><td><code>LLAMA_CACHE</code></td><td>llama.cpp cache directory, when you want to pin one</td></tr></tbody></table></div>
+<p>The runtime must report build <code>11960</code> and release <code>0.8.0</code> to be accepted as pinned. Only then does the UI show <code>verified pin</code>.</p>
+<h3 id="limits" class="sub">Limits<a class="anchor" href="#limits" aria-label="Link to this section">#</a></h3>
+<p>These are the durable run budgets. Values outside the stated range are refused at startup with the constraint in the error, not silently clamped.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Range</th></tr></thead><tbody><tr><td><code>LFM3_MAX_STEPS</code></td><td>8</td><td>1–32</td></tr><tr><td><code>LFM3_MAX_ATTEMPTS_PER_STRATEGY</code></td><td>3</td><td>1–8</td></tr><tr><td><code>LFM3_MAX_STRATEGIES</code></td><td>2</td><td>1–4</td></tr><tr><td><code>LFM3_MAX_TOTAL_ATTEMPTS</code></td><td>6</td><td>At least one strategy, at most 16</td></tr><tr><td><code>LFM3_RUN_TIMEOUT_SECONDS</code></td><td>900</td><td>10–86400</td></tr><tr><td><code>LFM3_MAX_TOKENS</code></td><td>4096</td><td>128–32768</td></tr><tr><td><code>LFM3_TEMPERATURE</code></td><td>0.1</td><td>0–2, finite</td></tr><tr><td><code>LFM3_SHELL_TIMEOUT</code></td><td>120</td><td>1–3600</td></tr><tr><td><code>LFM3_CONTEXT_CHARS</code></td><td>18000</td><td>1,000–1,000,000</td></tr></tbody></table></div>
+<div class="callout callout-note"><p class="callout-title">Which limits the executor honours</p><p>The executor uses its built-in 512-token cap per step and the planner a fixed 1,536. <code>limits.max_tokens</code> is a configuration surface that is not yet wired into those requests; the project tracks this as a known gap rather than pretending it applies.</p></div>
+<h3 id="tracing" class="sub">Tracing<a class="anchor" href="#tracing" aria-label="Link to this section">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>POSTHOG_API_KEY</code></td><td>empty</td><td>Enables opt-in PostHog AI tracing of local model calls. Empty means no client and no outbound request</td></tr><tr><td><code>POSTHOG_AI_CAPTURE_CONTENT</code></td><td>empty</td><td>When set to <code>1</code>, prompt and completion text is attached to a trace</td></tr></tbody></table></div>
+<p>With the key unset, there is no tracing client at all. Metadata-only tracing is the default even when a key is present.</p>
+<h2 id="setup-json"><code>setup.json</code><a class="anchor" href="#setup-json" aria-label="Link to this section">#</a></h2>
+<p>Write this file into the data directory to pin paths without environment variables. Every supplied path must be absolute and present; a malformed file is reported and left untouched.</p>
+<div class="code-block"><pre><code class="language-json">{
+  "llama_server": "F:\\lfm3\\tools\\llama\\llama-server.exe",
+  "llama_tts": null,
+  "models_dir": "F:\\lfm3\\models",
+  "projector": null,
+  "workspace": "F:\\lfm3\\demo"
+}</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>llama_server</code></td><td>Path to the pinned <code>llama-server</code></td></tr><tr><td><code>llama_tts</code></td><td>Path to <code>llama-tts</code>, or <code>null</code></td></tr><tr><td><code>models_dir</code></td><td>Folder containing the GGUF weights</td></tr><tr><td><code>projector</code></td><td>Vision projector path, or <code>null</code> when it sits beside the weights</td></tr><tr><td><code>workspace</code></td><td>Default workspace, written by the chat header folder picker</td></tr></tbody></table></div>
+<p>On Linux use absolute paths such as <code>/home/you/lfm3/tools/llama/llama-server</code>. <code>LFM3_WORKSPACE</code> still takes precedence over the saved <code>workspace</code> value.</p>
+<h2 id="the-packaged-profile">The packaged profile<a class="anchor" href="#the-packaged-profile" aria-label="Link to this section">#</a></h2>
+<p><code>LFM3_PROFILE=packaged</code> is a startup refusal, not a preference. With it set, the engine refuses to start when:</p>
+<ul><li>a model endpoint is not a loopback address, or</li><li><code>LFM3_ALLOW_DOWNLOAD</code> is on.</li></ul>
+<p>The release bundles use the CPU profile with <code>-ngl 0</code>. The <code>gpu</code> profile exists for a runtime you build and provision yourself; no GPU backend ships in any installer.</p>
+<h2 id="files-the-app-writes">Files the app writes<a class="anchor" href="#files-the-app-writes" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">File</th><th scope="col">Role</th></tr></thead><tbody><tr><td><code>setup.json</code></td><td>Runtime paths, models folder, default workspace</td></tr><tr><td><code>chat.db</code></td><td>Conversations, messages, pending and decided approvals</td></tr><tr><td><code>jobs.db</code></td><td>Job records and their turns</td></tr><tr><td><code>runs.db</code></td><td>Verified runs, steps, attempts, evidence, retries</td></tr><tr><td><code>models/</code></td><td>Verified GGUF weights, one subfolder per repository</td></tr></tbody></table></div>
+<p>All of it is local SQLite and JSON in the data directory. Nothing is synced, and nothing is uploaded.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/configuration.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="cli.html"><span>Previous</span><strong>CLI reference</strong></a><a class="pager-link pager-next" href="architecture.html"><span>Next</span><strong>Architecture</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#precedence">Precedence</a></li><li class="toc-h2"><a href="#data-directory">Data directory</a></li><li class="toc-h2"><a href="#environment-variables">Environment variables</a></li><li class="toc-h3"><a href="#core">Core</a></li><li class="toc-h3"><a href="#endpoints">Endpoints</a></li><li class="toc-h3"><a href="#runtime-paths">Runtime paths</a></li><li class="toc-h3"><a href="#limits">Limits</a></li><li class="toc-h3"><a href="#tracing">Tracing</a></li><li class="toc-h2"><a href="#setup-json"><code>setup.json</code></a></li><li class="toc-h2"><a href="#the-packaged-profile">The packaged profile</a></li><li class="toc-h2"><a href="#files-the-app-writes">Files the app writes</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>

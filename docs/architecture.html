@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Architecture — LFM3 Workspace documentation</title>
+    <meta name="description" content="How LFM3 Workspace is put together: the React UI, the Tauri shell, the embedded Rust harness, llama.cpp child processes, SQLite stores, and the event channels between them." />
+    <link rel="canonical" href="https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#f6f1e6" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="LFM3 Workspace" />
+    <meta property="og:title" content="Architecture — LFM3 Workspace documentation" />
+    <meta property="og:description" content="How LFM3 Workspace is put together: the React UI, the Tauri shell, the embedded Rust harness, llama.cpp child processes, SQLite stores, and the event channels between them." />
+    <meta property="og:url" content="https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html" />
+    <meta property="og:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Architecture — LFM3 Workspace documentation" />
+    <meta name="twitter:description" content="How LFM3 Workspace is put together: the React UI, the Tauri shell, the embedded Rust harness, llama.cpp child processes, SQLite stores, and the event channels between them." />
+    <meta name="twitter:image" content="https://lfm3-harness.github.io/LFM3-Harness/assets/og-image.png" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icon-64.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon-180.png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../docs.css" />
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html#article",
+      "headline": "Architecture",
+      "description": "How LFM3 Workspace is put together: the React UI, the Tauri shell, the embedded Rust harness, llama.cpp child processes, SQLite stores, and the event channels between them.",
+      "url": "https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html",
+      "inLanguage": "en",
+      "dateModified": "2026-11-02",
+      "isPartOf": {
+        "@id": "https://lfm3-harness.github.io/LFM3-Harness/#website"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LFM3-Harness"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "LFM3 Workspace"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Architecture",
+          "item": "https://lfm3-harness.github.io/LFM3-Harness/docs/architecture.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+
+  <body class="docs-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header docs-header">
+      <a class="brand" href="../index.html" aria-label="LFM3 Workspace home">
+        <img src="../assets/icon-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">LFM3</span>
+        <span class="brand-sub">Workspace</span>
+      </a>
+      <p class="docs-stamp">Documentation<span class="docs-version">v0.1.1</span></p>
+
+      <div class="docs-search" role="search">
+        <label class="visually-hidden" for="docs-search-input">Search the documentation</label>
+        <input
+          id="docs-search-input"
+          type="search"
+          placeholder="Search docs"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="docs-search-results"
+          aria-expanded="false"
+          data-search-input
+        />
+        <kbd aria-hidden="true">/</kbd>
+        <div class="search-results" id="docs-search-results" hidden data-search-results></div>
+      </div>
+
+      <nav class="site-nav docs-header-nav" aria-label="Project">
+        <a href="../index.html">Product</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness" target="_blank" rel="noopener noreferrer">Source</a>
+      </nav>
+      <a class="btn btn-small docs-download" href="../index.html#download">Download</a>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <details class="docs-nav" open data-docs-nav>
+          <summary>Documentation menu</summary>
+          <nav aria-label="Documentation"><div class="nav-group"><p class="nav-label">Get started</p><ul><li><a href="index.html">Overview</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="install.html">Install</a></li></ul></div><div class="nav-group"><p class="nav-label">Using the app</p><ul><li><a href="chat.html">Chat</a></li><li><a href="models.html">Models</a></li><li><a href="approvals.html">Approvals &amp; safety</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="verified-tasks.html">Verified tasks</a></li></ul></div><div class="nav-group"><p class="nav-label">Reference</p><ul><li><a href="tools.html">Tool reference</a></li><li><a href="cli.html">CLI reference</a></li><li><a href="configuration.html">Configuration</a></li></ul></div><div class="nav-group"><p class="nav-label">Under the hood</p><ul><li><a href="architecture.html" aria-current="page" class="is-active">Architecture</a></li><li><a href="privacy.html">Privacy &amp; licensing</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li><li><a href="building.html">Build from source</a></li></ul></div></nav>
+        </details>
+        <p class="docs-sidebar-note">
+          Release v0.1.1 · updated 2 November 2026. Every page describes behaviour that ships in this build.
+        </p>
+      </aside>
+
+      <main id="main" class="docs-main" tabindex="-1">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Documentation</a><span aria-hidden="true">/</span><span aria-current="page">Architecture</span>
+        </nav>
+
+        <article class="docs-article">
+          <p class="label">Under the hood</p>
+          <h1>Architecture</h1>
+          <p class="docs-lede">One process tree, no sidecar, no loopback control server. The webview talks to an embedded engine through typed commands and listens to durable events.</p>
+          <p class="docs-meta">
+            <span>Updated 2 November 2026</span>
+            <span>5 min read</span>
+          </p>
+
+<p>One process tree, no sidecar, no loopback control server. The webview talks to an embedded engine through typed commands and listens to durable events.</p>
+<h2 id="the-shape-of-it">The shape of it<a class="anchor" href="#the-shape-of-it" aria-label="Link to this section">#</a></h2>
+<div class="code-block"><pre><code class="language-text">React + TypeScript UI
+  chat · attachments · voice · verified tasks · jobs
+        │ typed Tauri commands and events
+        ▼
+Tauri 2 desktop application
+  chat runtime · routing · approval gates · durable events
+        │ embeds in-process
+        ▼
+Rust lfm3-harness engine
+  chat transcript store · decision router · search and related tools
+  planning · execution · verification · retries · model leases
+  SQLite run journal, chat.db, jobs.db · artifacts
+        │ owns child processes
+        ▼
+llama.cpp b11960 / v0.8.0
+  LFM3-1.7B · LFM3-VL-2B · LFM3-Audio-2B · d1-2B
+  llama-server for chat, vision, hearing, and routing
+  llama-tts for LFM3-Audio-2B speech output</code></pre></div>
+<p>Production uses no Python sidecar and no localhost engine HTTP server. The headless CLI uses the same Rust harness for diagnostics and real-model acceptance.</p>
+<h2 id="components">Components<a class="anchor" href="#components" aria-label="Link to this section">#</a></h2>
+<h3 id="apps-ui-the-interface" class="sub"><code>apps/ui</code> — the interface<a class="anchor" href="#apps-ui-the-interface" aria-label="Link to this section">#</a></h3>
+<p>React 19, TypeScript 5.9, and Vite 8. It opens on chat, shows the decision route and local model roles, accepts image attachments and voice input, reads answers aloud with the local voice, and keeps verified missions one click away. The production bundle contains no demo bridge; <code>?demo=1</code> exists only in development and renders the verified-task surface with chat unavailable.</p>
+<h3 id="apps-desktop-the-shell" class="sub"><code>apps/desktop</code> — the shell<a class="anchor" href="#apps-desktop-the-shell" aria-label="Link to this section">#</a></h3>
+<p>The Tauri 2 shell embeds one engine and exposes typed commands and durable events to the webview. It runs the multi-model chat turn loop and the approval gates, and it owns every child process through a kill-on-close Windows Job Object or a Linux process group.</p>
+<p>Key modules:</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">File</th><th scope="col">Responsibility</th></tr></thead><tbody><tr><td><code>src-tauri/src/commands.rs</code></td><td>The typed command surface the webview may call</td></tr><tr><td><code>src-tauri/src/chat.rs</code></td><td>Chat turn loop, routing, gates, attachments, voice</td></tr><tr><td><code>src-tauri/src/downloads.rs</code></td><td>The pinned model catalog and verified download</td></tr><tr><td><code>src-tauri/src/engine.rs</code></td><td>Embedded engine lifecycle</td></tr><tr><td><code>src-tauri/src/setup.rs</code></td><td>Read-only discovery and <code>setup.json</code></td></tr><tr><td><code>src-tauri/src/jobs.rs</code></td><td>Job records and the job stream</td></tr><tr><td><code>src-tauri/src/events.rs</code></td><td>Event delivery to the webview</td></tr></tbody></table></div>
+<h3 id="crates-lfm3-harness-the-engine" class="sub"><code>crates/lfm3-harness</code> — the engine<a class="anchor" href="#crates-lfm3-harness-the-engine" aria-label="Link to this section">#</a></h3>
+<p>The engine is a plain Rust library, which is why the desktop app and the CLI cannot drift apart:</p>
+<ul><li>frozen acceptance contracts and mission manifests;</li><li>planning, execution, verification, and the recovery controller;</li><li>confined tools and the shared path resolver;</li><li>provenance-bound deterministic checks and the semantic judge contract;</li><li>model leases and process supervision;</li><li>the SQLite run journal and the chat transcript store.</li></ul>
+<h3 id="crates-lfm3-cli-the-headless-binary" class="sub"><code>crates/lfm3-cli</code> — the headless binary<a class="anchor" href="#crates-lfm3-cli-the-headless-binary" aria-label="Link to this section">#</a></h3>
+<p><code>doctor</code>, <code>missions</code>, <code>models</code>, <code>plan</code>, <code>run</code>, <code>status</code>, <code>retry</code>, <code>task</code>, and <code>job</code>. It links the same engine and uses the same configuration loader.</p>
+<h2 id="a-chat-turn-in-order">A chat turn, in order<a class="anchor" href="#a-chat-turn-in-order" aria-label="Link to this section">#</a></h2>
+<ol><li>The webview calls a typed command with the message and any attachments.</li><li>The engine opens or resumes the conversation in <code>chat.db</code> and checks that no turn is already live.</li><li>If d1 is installed and the message is long enough, the router classifies it against a closed label set. The keyword route stands if the answer is missing, slow, or below the floor.</li><li>The acting model is called with a bounded context: fixed system prompt, newest 240 messages capped near 96,000 characters, temperature 0.3, at most 1,024 output tokens.</li><li>Tool calls are executed by the confined registry. Reads run; writes become pending actions after the write gate.</li><li>Tool results, gate outcomes, and message deltas are emitted as durable events.</li><li>The turn ends after at most twelve tool rounds, or on <strong>Stop</strong>, which cancels the stream and pending approvals.</li></ol>
+<h2 id="a-verified-run-in-order">A verified run, in order<a class="anchor" href="#a-verified-run-in-order" aria-label="Link to this section">#</a></h2>
+<ol><li>The mission manifest plus input produce a frozen acceptance contract and its hash.</li><li>The planner drafts steps; the plan is approved before execution.</li><li>The executor runs one step at a time, each tool call path-confined.</li><li>The verifier evaluates deterministic checks against real files and records digests; semantic checks follow the mission's declared policy.</li><li>Failures consume the recovery budget and may replan, never relax.</li><li>The coordinator writes every transition to the journal and emits events.</li><li>The run ends <code>passed</code> only on a complete contract, otherwise <code>incomplete</code> with a reason.</li></ol>
+<h2 id="event-channels">Event channels<a class="anchor" href="#event-channels" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Channel</th><th scope="col">Carries</th></tr></thead><tbody><tr><td><code>lfm3:chat-event</code></td><td>Chat message deltas, route and gate results, approval requests and decisions, voice results</td></tr><tr><td><code>lfm3:job-event</code></td><td>Job turns, phases, todo state, tool calls, status</td></tr><tr><td><code>lfm3:run-event</code></td><td>Verified-run journal events: attempts, checks, retries, completion</td></tr></tbody></table></div>
+<p>Events are durable, not cosmetic: the journal and the database are the source of truth, and the UI rehydrates from them after a restart.</p>
+<h2 id="process-supervision">Process supervision<a class="anchor" href="#process-supervision" aria-label="Link to this section">#</a></h2>
+<p>Model servers are child processes the harness owns, not services you manage.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Platform</th><th scope="col">Mechanism</th><th scope="col">On exit</th></tr></thead><tbody><tr><td>Windows</td><td>Job Object with kill-on-close</td><td>The entire job is terminated</td></tr><tr><td>Linux</td><td>Process group per child</td><td>The group is terminated</td></tr></tbody></table></div>
+<p>A platform with neither containment refuses to start children rather than leaking them. The supervisor reports which mechanism it is using. On Linux, each owned llama.cpp process also gets its own directory at the front of <code>LD_LIBRARY_PATH</code>, so packaged libraries win over system copies.</p>
+<p>The installed smoke acceptance proves this in the negative: an externally started <code>llama-server</code> survives every phase, while an owned <code>llama-server</code> dies with the app.</p>
+<h2 id="state">State<a class="anchor" href="#state" aria-label="Link to this section">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Store</th><th scope="col">Contents</th></tr></thead><tbody><tr><td><code>chat.db</code></td><td>Conversations, messages, pending and decided approvals</td></tr><tr><td><code>jobs.db</code></td><td>Jobs and their turns</td></tr><tr><td><code>runs.db</code></td><td>Runs, steps, attempts, evidence, retry links</td></tr><tr><td><code>setup.json</code></td><td>Runtime paths, models folder, default workspace</td></tr><tr><td>Workspace</td><td>Only approved writes, plus <code>.attachments/</code></td></tr></tbody></table></div>
+<p>No store is shared with the model servers, and no model output is trusted as state. The engine reads the file it wrote to report a digest, rather than trusting the content it sent.</p>
+<h2 id="why-it-is-built-this-way">Why it is built this way<a class="anchor" href="#why-it-is-built-this-way" aria-label="Link to this section">#</a></h2>
+<ul><li><strong>Embedded, not sidecar.</strong> A separate engine process would add a supervisor, an RPC surface, and a second lifecycle to get wrong. An in-process engine makes the boundary a function call.</li><li><strong>One path resolver.</strong> Tools and verifiers share <code>paths::resolve</code>, so "inside the workspace" cannot mean two different things.</li><li><strong>Typed decisions.</strong> Routing and gates return declared labels with confidences, not free text. An undeclared label is a failure, not an interpretation.</li><li><strong>Measured completion.</strong> Every completion claim is re-derived from the filesystem. The digest in a report is recomputed from the file that was re-read.</li><li><strong>Bounded everything.</strong> Turns, tool calls, tool output, file sizes, retries, deadlines, and plan size all have caps. The model's profile sets them.</li></ul>
+<h2 id="stack">Stack<a class="anchor" href="#stack" aria-label="Link to this section">#</a></h2>
+<ul><li>Rust stable: MSVC toolchain on Windows, GNU on Linux.</li><li>Tokio, Serde, Reqwest, Rusqlite, and SHA-256 for the engine.</li><li>Tauri 2 for the native boundary.</li><li>React 19, TypeScript 5.9, Vite 8, Vitest, and Playwright for the UI.</li><li>External llama.cpp b11960 for inference: no Rust FFI, no version drift.</li></ul>
+<p>The inference backend is pinned deliberately. Using Rust does not require changing llama.cpp, and an upgrade requires a separate compatibility qualification across all four models.</p>
+
+          <div class="page-tools">
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/edit/main/docs/guide/architecture.md" target="_blank" rel="noopener noreferrer">Edit this page</a>
+            <a href="https://github.com/LFM3-Harness/LFM3-Harness/issues/new" target="_blank" rel="noopener noreferrer">Report a problem</a>
+          </div>
+
+          <nav class="pager" aria-label="Guide pages"><a class="pager-link pager-prev" href="configuration.html"><span>Previous</span><strong>Configuration</strong></a><a class="pager-link pager-next" href="privacy.html"><span>Next</span><strong>Privacy, security, and licensing</strong></a></nav>
+        </article>
+      </main>
+
+      <aside class="docs-toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul data-toc><li class="toc-h2"><a href="#the-shape-of-it">The shape of it</a></li><li class="toc-h2"><a href="#components">Components</a></li><li class="toc-h3"><a href="#apps-ui-the-interface"><code>apps/ui</code> — the interface</a></li><li class="toc-h3"><a href="#apps-desktop-the-shell"><code>apps/desktop</code> — the shell</a></li><li class="toc-h3"><a href="#crates-lfm3-harness-the-engine"><code>crates/lfm3-harness</code> — the engine</a></li><li class="toc-h3"><a href="#crates-lfm3-cli-the-headless-binary"><code>crates/lfm3-cli</code> — the headless binary</a></li><li class="toc-h2"><a href="#a-chat-turn-in-order">A chat turn, in order</a></li><li class="toc-h2"><a href="#a-verified-run-in-order">A verified run, in order</a></li><li class="toc-h2"><a href="#event-channels">Event channels</a></li><li class="toc-h2"><a href="#process-supervision">Process supervision</a></li><li class="toc-h2"><a href="#state">State</a></li><li class="toc-h2"><a href="#why-it-is-built-this-way">Why it is built this way</a></li><li class="toc-h2"><a href="#stack">Stack</a></li></ul>
+        <a class="toc-top" href="#main">Back to top</a>
+      </aside>
+    </div>
+
+    <footer class="site-footer docs-footer">
+      <div class="footer-brand">
+        <img src="../assets/icon-64.png" alt="" width="24" height="24" />
+        <span>LFM3 Workspace v0.1.1</span>
+      </div>
+      <nav aria-label="Documentation links">
+        <a href="index.html">Docs home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="cli.html">CLI</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness">Source</a>
+        <a href="https://github.com/LFM3-Harness/LFM3-Harness/releases/tag/v0.1.1">Release</a>
+      </nav>
+      <p class="colophon">
+        LFM3-Harness is an independent, community-built experimental application for running and exploring Liquid
+        AI's LFM3 models locally. It is not affiliated with, endorsed by, or sponsored by Liquid AI.
+        Documentation and source are MIT-licensed; model weights keep the terms on their own model cards.
+      </p>
+    </footer>
+
+    <script src="../docs.js" defer></script>
+  </body>
+</html>
